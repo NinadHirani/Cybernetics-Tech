@@ -99,26 +99,6 @@ const Footer = () => {
                   </a>
                 </div>
             </div>
-            
-            <div className="mt-8">
-              <h4 className="text-white text-[15px] font-semibold mb-4">Membership</h4>
-              <div className="flex items-center gap-4">
-                <Image 
-                  src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c7eda8bf-0b51-4df9-bd1e-d810430a3d49-rkinfotechindia-com/assets/icons/bni-2.png"
-                  alt="BNI Member"
-                  width={60}
-                  height={30}
-                  className="opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0 invert"
-                />
-                <Image 
-                  src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c7eda8bf-0b51-4df9-bd1e-d810430a3d49-rkinfotechindia-com/assets/icons/rita_20logo_202-3.png"
-                  alt="RITA Member"
-                  width={100}
-                  height={35}
-                  className="opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0 invert"
-                />
-              </div>
-            </div>
           </div>
 
         </div>
