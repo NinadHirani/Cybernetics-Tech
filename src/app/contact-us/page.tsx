@@ -29,9 +29,7 @@ export default function ContactUsPage() {
                   <div>
                     <h4 className="text-white font-bold mb-2">Our Office</h4>
                     <p className="text-slate-400 text-sm leading-relaxed">
-                      404, J.P. Tower, Near Milpara Police Chowky,<br />
-                      Beside Atithi Guest House, Milpara,<br />
-                      Rajkot, Gujarat - 360002.
+                      Rajkot Gujarat
                     </p>
                   </div>
                 </div>

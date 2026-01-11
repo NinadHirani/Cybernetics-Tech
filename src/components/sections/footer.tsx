@@ -92,11 +92,9 @@ const Footer = () => {
             <div className="space-y-4">
               <div className="flex items-start gap-3">
                 <MapPin className="text-primary w-5 h-5 mt-1 shrink-0" />
-                <p className="text-[14px] leading-[24px]">
-                  404, J.P. Tower, Near Milpara Police Chowky,<br />
-                  Beside Atithi Guest House, Milpara,<br />
-                  Rajkot, Gujarat - 360002.
-                </p>
+                  <p className="text-[14px] leading-[24px]">
+                    Rajkot Gujarat
+                  </p>
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="text-primary w-5 h-5 shrink-0" />
