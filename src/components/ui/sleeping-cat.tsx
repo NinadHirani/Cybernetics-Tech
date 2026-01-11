@@ -28,18 +28,18 @@ export function SleepingCat({ className }: SleepingCatProps) {
       const catCenterX = rect.left + rect.width / 2;
       const catCenterY = rect.top + rect.height / 2;
 
-      // Calculate relative distance (-1 to 1)
-      const dx = (e.clientX - catCenterX) / (window.innerWidth / 2);
-      const dy = (e.clientY - catCenterY) / (window.innerHeight / 2);
+        // Calculate relative distance (-1 to 1)
+        const dx = (e.clientX - catCenterX) / 200;
+        const dy = (e.clientY - catCenterY) / 200;
 
-      // Distance for bubble trigger
-      const dist = Math.sqrt(Math.pow(e.clientX - catCenterX, 2) + Math.pow(e.clientY - catCenterY, 2));
-      setShowBubble(dist < 150);
+        // Distance for bubble trigger
+        const dist = Math.sqrt(Math.pow(e.clientX - catCenterX, 2) + Math.pow(e.clientY - catCenterY, 2));
+        setShowBubble(dist < 150);
 
-      // Clamp values and set motion values (max 3px movement)
-      mouseX.set(Math.max(-3, Math.min(3, dx * 5)));
-      mouseY.set(Math.max(-2, Math.min(2, dy * 5)));
-    };
+        // Clamp values and set motion values (max 3.5px movement)
+        mouseX.set(Math.max(-3.5, Math.min(3.5, dx * 4)));
+        mouseY.set(Math.max(-2, Math.min(2, dy * 4)));
+      };
 
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
@@ -130,32 +130,48 @@ export function SleepingCat({ className }: SleepingCatProps) {
             transition={{ repeat: Infinity, duration: 5, delay: 1 }}
           />
           
-          {/* Eyes - Glowing when hovered */}
-          <g transform="translate(32, 32)">
-            <ellipse cx="0" cy="0" rx="4" ry="2.5" fill="white" stroke="#94A3B8" strokeWidth="0.5" />
-            <motion.circle 
-              cx="0" 
-              cy="0" 
-              r="1.5" 
-                fill={isHovered ? "#FF0000" : "#1E293B"}
-              style={{ x: eyeX, y: eyeY }}
-              animate={isHovered ? { r: [1.5, 2, 1.5] } : {}}
-              transition={{ repeat: Infinity, duration: 1 }}
-            />
-          </g>
-          
-          <g transform="translate(48, 32)">
-            <ellipse cx="0" cy="0" rx="4" ry="2.5" fill="white" stroke="#94A3B8" strokeWidth="0.5" />
-            <motion.circle 
-              cx="0" 
-              cy="0" 
-              r="1.5" 
-                fill={isHovered ? "#FF0000" : "#1E293B"}
-              style={{ x: eyeX, y: eyeY }}
-              animate={isHovered ? { r: [1.5, 2, 1.5] } : {}}
-              transition={{ repeat: Infinity, duration: 1 }}
-            />
-          </g>
+            {/* Eyes - Glowing and Tracing */}
+            <g transform="translate(32, 32)">
+              <ellipse cx="0" cy="0" rx="4" ry="2.5" fill="#F8FAFC" stroke="#94A3B8" strokeWidth="0.5" />
+              <motion.circle 
+                cx="0" 
+                cy="0" 
+                initial={{ r: 1.8 }}
+                fill="#FF0000"
+                style={{ x: eyeX, y: eyeY }}
+                animate={{ 
+                  r: isHovered ? [1.8, 2.2, 1.8] : [1.8, 2, 1.8],
+                  filter: isHovered 
+                    ? ["drop-shadow(0 0 1px #FF0000)", "drop-shadow(0 0 3px #FF0000)", "drop-shadow(0 0 1px #FF0000)"]
+                    : "drop-shadow(0 0 1px #FF0000)"
+                }}
+                transition={{ 
+                  r: { repeat: Infinity, duration: 1.5 },
+                  filter: { repeat: Infinity, duration: 1.5 }
+                }}
+              />
+            </g>
+            
+            <g transform="translate(48, 32)">
+              <ellipse cx="0" cy="0" rx="4" ry="2.5" fill="#F8FAFC" stroke="#94A3B8" strokeWidth="0.5" />
+              <motion.circle 
+                cx="0" 
+                cy="0" 
+                initial={{ r: 1.8 }}
+                fill="#FF0000"
+                style={{ x: eyeX, y: eyeY }}
+                animate={{ 
+                  r: isHovered ? [1.8, 2.2, 1.8] : [1.8, 2, 1.8],
+                  filter: isHovered 
+                    ? ["drop-shadow(0 0 1px #FF0000)", "drop-shadow(0 0 3px #FF0000)", "drop-shadow(0 0 1px #FF0000)"]
+                    : "drop-shadow(0 0 1px #FF0000)"
+                }}
+                transition={{ 
+                  r: { repeat: Infinity, duration: 1.5 },
+                  filter: { repeat: Infinity, duration: 1.5 }
+                }}
+              />
+            </g>
           
           {/* Nose */}
           <circle cx="40" cy="38" r="1.5" fill="#F472B6" opacity="0.8" />
