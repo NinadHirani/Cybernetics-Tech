@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { VisualEditsMessenger } from "orchids-visual-edits";
+import { ClickEffect } from "@/components/ui/click-effect";
 import Script from "next/script";
 
 const geistSans = Geist({
@@ -34,8 +35,10 @@ export default function RootLayout({
           src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts/orchids-browser-logs.js"
           strategy="afterInteractive"
           data-orchids-project-id="c7eda8bf-0b51-4df9-bd1e-d810430a3d49"
-        />
-        {children}
+          />
+          <ClickEffect />
+          {children}
+
         <VisualEditsMessenger />
       </body>
     </html>

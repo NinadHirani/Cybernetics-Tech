@@ -28,50 +28,13 @@ const Hero = () => {
     mouseY.set(clientY / innerHeight - 0.5);
   };
 
-  const [clicks, setClicks] = React.useState<{ id: number; x: number; y: number }[]>([]);
-
-  const handleClick = (e: React.MouseEvent) => {
-    const rect = containerRef.current?.getBoundingClientRect();
-    if (!rect) return;
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const id = Date.now();
-    setClicks(prev => [...prev, { id, x, y }]);
-    setTimeout(() => {
-      setClicks(prev => prev.filter(click => click.id !== id));
-    }, 1000);
-  };
-
   return (
     <section 
       id="home" 
       ref={containerRef}
       onMouseMove={handleMouseMove}
-      onClick={handleClick}
       className="relative min-h-screen w-full flex items-center overflow-hidden bg-background pt-[70px] cursor-crosshair"
     >
-      {/* Click Ripples */}
-      {clicks.map(click => (
-        <motion.div
-          key={click.id}
-          initial={{ scale: 0, opacity: 0.5 }}
-          animate={{ scale: 4, opacity: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          style={{
-            position: "absolute",
-            left: click.x,
-            top: click.y,
-            width: 50,
-            height: 50,
-            marginLeft: -25,
-            marginTop: -25,
-            borderRadius: "50%",
-            backgroundColor: "rgba(59, 130, 246, 0.4)",
-            pointerEvents: "none",
-            zIndex: 50
-          }}
-        />
-      ))}
       {/* Professional Tech Background */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         {/* Animated Dot Grid */}
