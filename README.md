@@ -1,2 +1,2 @@
 # Cybernetics-Tech
-My Cybernetics Website - "cybernetics-tech.vercel.app"
+My Cybernetics Website - "https://cybernetics-tech.vercel.app"
