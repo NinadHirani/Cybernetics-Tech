@@ -54,7 +54,7 @@ const ServiceCard = ({
         </p>
 
         {/* Read More Link */}
-        <a 
+        <Link 
           href={link} 
           className="inline-flex items-center font-display text-sm font-bold uppercase tracking-wider text-primary hover:text-white transition-colors"
         >
@@ -67,7 +67,7 @@ const ServiceCard = ({
           >
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
           </svg>
-        </a>
+        </Link>
       </div>
     </div>
   );
@@ -80,35 +80,35 @@ const ServicesSection = () => {
           description: "We provide high-quality and cost-effective website development services for your business requirements.",
           icon: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c7eda8bf-0b51-4df9-bd1e-d810430a3d49-rkinfotechindia-com/assets/images/website-development-1-7.png",
           bgImage: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c7eda8bf-0b51-4df9-bd1e-d810430a3d49-rkinfotechindia-com/assets/images/website_development-2.jpg",
-          link: "/services"
+          link: "/services/web-development"
         },
         {
           title: "App Development",
           description: "Native and Hybrid mobile applications with seamless user experience and high performance for iOS and Android.",
           icon: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c7eda8bf-0b51-4df9-bd1e-d810430a3d49-rkinfotechindia-com/assets/images/Application_Development-8.png",
           bgImage: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c7eda8bf-0b51-4df9-bd1e-d810430a3d49-rkinfotechindia-com/assets/images/application_development-3.jpg",
-          link: "/services"
+          link: "/services/app-development"
         },
         {
           title: "Graphics Design",
           description: "Creative and meaningful visual concepts to communicate ideas that inspire, inform, and captivate consumers.",
           icon: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c7eda8bf-0b51-4df9-bd1e-d810430a3d49-rkinfotechindia-com/assets/images/graphics-design-1-9.png",
           bgImage: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c7eda8bf-0b51-4df9-bd1e-d810430a3d49-rkinfotechindia-com/assets/images/graphics_design-4.jpg",
-          link: "/services"
+          link: "/services/graphics-design"
         },
         {
           title: "SEO Service",
           description: "Improving your website visibility and search engine rankings to drive more organic traffic and growth.",
           icon: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c7eda8bf-0b51-4df9-bd1e-d810430a3d49-rkinfotechindia-com/assets/images/seo_service-10.png",
           bgImage: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c7eda8bf-0b51-4df9-bd1e-d810430a3d49-rkinfotechindia-com/assets/images/seo_services-5.jpg",
-          link: "/services"
+          link: "/services/seo-service"
         },
         {
           title: "Software Development",
           description: "Custom software solutions designed to automate business processes and increase organizational efficiency.",
           icon: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c7eda8bf-0b51-4df9-bd1e-d810430a3d49-rkinfotechindia-com/assets/images/Software_Development-11.png",
           bgImage: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c7eda8bf-0b51-4df9-bd1e-d810430a3d49-rkinfotechindia-com/assets/images/software_development-6.jpg",
-          link: "/services"
+          link: "/services/software-development"
         }
 
     ];
