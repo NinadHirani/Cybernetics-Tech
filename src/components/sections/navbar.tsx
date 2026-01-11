@@ -187,20 +187,10 @@ const Navbar = () => {
                     )}
                   </li>
                 ))}
-              </ul>
-
-              {/* Contact Us Button */}
-              <div className="ml-6">
-                <Link
-                  href="/contact-us/"
-                  className="relative px-8 py-3 rounded-xl bg-primary text-white font-bold text-[13px] uppercase tracking-widest transition-all duration-300 hover:scale-105 hover:bg-blue-600 hover:shadow-[0_0_20px_rgba(37,99,235,0.4)]"
-                >
-                  Contact Us
-                </Link>
+                </ul>
               </div>
-            </div>
 
-            {/* Mobile Menu Toggle */}
+              {/* Mobile Menu Toggle */}
             <button
               className="lg:hidden p-2 text-white"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -261,15 +251,6 @@ const Navbar = () => {
                 </li>
               ))}
             </ul>
-          </div>
-          <div className="p-8">
-            <Link
-              href="/contact-us/"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block text-center bg-primary text-white py-4 rounded-2xl font-bold uppercase tracking-widest"
-            >
-              Contact Us
-            </Link>
           </div>
         </div>
       </nav>
