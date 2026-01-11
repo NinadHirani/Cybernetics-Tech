@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ChevronDown, Menu, Check } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Logo } from "@/components/ui/logo";
+import { SleepingCat } from "@/components/ui/sleeping-cat";
 
 interface SubMenuItem {
   name: string;
@@ -120,13 +121,15 @@ interface Column {
         )}
       >
         <div className="container mx-auto max-w-[1170px] px-4">
-          <div className="flex items-center justify-between h-16">
-            {/* Logo Section */}
-            <div className="flex-shrink-0">
-              <Link href="/" className="block transition-transform hover:scale-105">
-                <Logo className="scale-90" />
-              </Link>
-            </div>
+            <div className="flex items-center justify-between h-16">
+              {/* Logo Section */}
+              <div className="flex-shrink-0 flex items-center gap-2">
+                <Link href="/" className="block transition-transform hover:scale-105">
+                  <Logo className="scale-90" />
+                </Link>
+                <SleepingCat className="hidden sm:flex" />
+              </div>
+
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center space-x-2">
@@ -221,11 +224,15 @@ interface Column {
               mobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
             )}
           >
-            <div className="flex items-center justify-between p-6 border-b border-white/5">
-               <Link href="/" onClick={() => setMobileMenuOpen(false)}>
-                 <Logo className="scale-90" />
-               </Link>
-               <button onClick={() => setMobileMenuOpen(false)} className="text-[40px] font-light text-white">
+              <div className="flex items-center justify-between p-6 border-b border-white/5">
+                 <div className="flex items-center gap-2">
+                   <Link href="/" onClick={() => setMobileMenuOpen(false)}>
+                     <Logo className="scale-90" />
+                   </Link>
+                   <SleepingCat className="scale-75" />
+                 </div>
+                 <button onClick={() => setMobileMenuOpen(false)} className="text-[40px] font-light text-white">
+
                  ×
                </button>
             </div>
