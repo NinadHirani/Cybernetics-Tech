@@ -43,15 +43,15 @@ const newsData = [
 const BlogNews = () => {
   return (
     <section 
-      className="relative w-full py-[80px] bg-cover bg-center bg-no-repeat overflow-hidden"
+      className="relative w-full py-[80px] bg-cover bg-center bg-no-repeat overflow-hidden border-t border-white/5"
       style={{ 
-        backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.94)), url('https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c7eda8bf-0b51-4df9-bd1e-d810430a3d49-rkinfotechindia-com/assets/images/background-img-10-26.jpg')`
+        backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.96)), url('https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c7eda8bf-0b51-4df9-bd1e-d810430a3d49-rkinfotechindia-com/assets/images/background-img-10-26.jpg')`
       }}
     >
       <div className="container mx-auto px-[15px] max-w-[1170px]">
         {/* Section Header */}
         <div className="text-center mb-[50px]">
-          <h2 className="text-[36px] font-semibold text-[#333333] font-display leading-[1.3] mb-[15px]">
+          <h2 className="text-[36px] font-semibold text-white font-display leading-[1.3] mb-[15px]">
             Latest News & Offers
           </h2>
           <div className="flex justify-center">
@@ -64,7 +64,7 @@ const BlogNews = () => {
           {newsData.map((item) => (
             <div 
               key={item.id} 
-              className="group bg-white rounded-[8px] overflow-hidden card-shadow transition-transform duration-300 hover:-translate-y-2 border border-[#eeeeee]"
+              className="group bg-slate-900 rounded-[8px] overflow-hidden transition-transform duration-300 hover:-translate-y-2 border border-white/5 shadow-2xl"
             >
               {/* Image Container */}
               <div className="relative aspect-square w-full overflow-hidden">
@@ -72,7 +72,7 @@ const BlogNews = () => {
                   src={item.image}
                   alt={item.title}
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="object-cover transition-transform duration-500 group-hover:scale-110 opacity-80 group-hover:opacity-100"
                 />
                 {/* Date Badge */}
                 <div className="absolute top-[15px] left-[15px] w-[55px] h-[60px] grdnt-green flex flex-col items-center justify-center text-white rounded-[4px] shadow-md z-10">
@@ -83,15 +83,15 @@ const BlogNews = () => {
 
               {/* Content */}
               <div className="p-[20px]">
-                <h3 className="text-[18px] font-semibold text-[#333333] font-display leading-[1.4] mb-[15px] line-clamp-2 h-[50px]">
-                  <a href={item.link} className="hover:text-[#28a745] transition-colors">
+                <h3 className="text-[18px] font-semibold text-white font-display leading-[1.4] mb-[15px] line-clamp-2 h-[50px]">
+                  <a href={item.link} className="hover:text-primary transition-colors">
                     {item.title}
                   </a>
                 </h3>
                 
                 <a 
                   href={item.link} 
-                  className="inline-flex items-center text-[#28a745] font-semibold text-[14px] uppercase tracking-wider transition-all group/link"
+                  className="inline-flex items-center text-primary font-semibold text-[14px] uppercase tracking-wider transition-all group/link hover:text-white"
                 >
                   Read More
                   <svg 
@@ -113,7 +113,7 @@ const BlogNews = () => {
         <div className="mt-[60px] text-center">
           <a 
             href="#" 
-            className="inline-block py-[14px] px-[35px] rounded-full grdnt-green text-white font-display font-bold text-[14px] uppercase tracking-wider hvr-wobble-horizontal shadow-lg"
+            className="inline-block py-[14px] px-[35px] rounded-full grdnt-green text-white font-display font-bold text-[14px] uppercase tracking-wider hvr-wobble-horizontal shadow-lg shadow-primary/20"
           >
             View All News
           </a>

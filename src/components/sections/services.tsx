@@ -1,7 +1,11 @@
+"use client";
+
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const ServiceCard = ({ 
+
   title, 
   description, 
   icon, 
@@ -15,34 +19,34 @@ const ServiceCard = ({
   link: string;
 }) => {
   return (
-    <div className="group relative overflow-hidden rounded-lg bg-slate-900 border border-slate-800 transition-all duration-300 hover:-translate-y-2">
+    <div className="group relative overflow-hidden rounded-lg bg-card border border-white/5 shadow-2xl transition-all duration-300 hover:-translate-y-2">
       {/* Background Image Wrapper */}
       <div className="relative h-[250px] w-full overflow-hidden">
         <Image 
           src={bgImage} 
           alt={title} 
           fill 
-          className="object-cover transition-transform duration-500 group-hover:scale-110 opacity-60"
+          className="object-cover transition-transform duration-500 group-hover:scale-110"
         />
         {/* Overlay */}
-        <div className="absolute inset-0 bg-slate-950/60 transition-opacity duration-300 group-hover:bg-slate-950/40" />
+        <div className="absolute inset-0 bg-black/60 transition-opacity duration-300 group-hover:bg-black/40" />
       </div>
 
       {/* Content Area */}
       <div className="relative z-10 -mt-12 px-6 pb-8 text-center">
         {/* Icon Circle */}
-        <div className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-slate-800 border border-slate-700 shadow-xl transition-transform duration-300 group-hover:scale-110">
+        <div className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-slate-900 border border-white/10 shadow-xl transition-transform duration-300 group-hover:scale-110">
           <Image 
             src={icon} 
             alt={`${title} icon`} 
             width={45} 
             height={45} 
-            className="h-auto w-11 object-contain brightness-0 invert"
+            className="h-auto w-11 object-contain invert"
           />
         </div>
 
         {/* Text Styling */}
-        <h3 className="mb-3 font-display text-[22px] font-semibold leading-[1.4] text-white transition-colors duration-300 group-hover:text-blue-400">
+        <h3 className="mb-3 font-display text-[22px] font-semibold leading-[1.4] text-white transition-colors duration-300 group-hover:text-primary">
           {title}
         </h3>
         <p className="mb-6 font-body text-base leading-[1.6] text-slate-400">
@@ -52,7 +56,7 @@ const ServiceCard = ({
         {/* Read More Link */}
         <a 
           href={link} 
-          className="inline-flex items-center font-display text-sm font-bold uppercase tracking-wider text-blue-500 hover:underline"
+          className="inline-flex items-center font-display text-sm font-bold uppercase tracking-wider text-primary hover:text-white transition-colors"
         >
           Read More
           <svg 
@@ -76,48 +80,48 @@ const ServicesSection = () => {
       description: "We provide high-quality and cost-effective website development services for your business requirements.",
       icon: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c7eda8bf-0b51-4df9-bd1e-d810430a3d49-rkinfotechindia-com/assets/images/website-development-1-7.png",
       bgImage: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c7eda8bf-0b51-4df9-bd1e-d810430a3d49-rkinfotechindia-com/assets/images/website_development-2.jpg",
-      link: "https://www.rkinfotechindia.com/services/web-development-company/"
+      link: "/services/web-development-company/"
     },
     {
       title: "App Development",
       description: "Native and Hybrid mobile applications with seamless user experience and high performance for iOS and Android.",
       icon: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c7eda8bf-0b51-4df9-bd1e-d810430a3d49-rkinfotechindia-com/assets/images/Application_Development-8.png",
       bgImage: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c7eda8bf-0b51-4df9-bd1e-d810430a3d49-rkinfotechindia-com/assets/images/application_development-3.jpg",
-      link: "https://www.rkinfotechindia.com/services/mobile-app-development/"
+      link: "/services/mobile-app-development/"
     },
     {
       title: "Graphics Design",
       description: "Creative and meaningful visual concepts to communicate ideas that inspire, inform, and captivate consumers.",
       icon: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c7eda8bf-0b51-4df9-bd1e-d810430a3d49-rkinfotechindia-com/assets/images/graphics-design-1-9.png",
       bgImage: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c7eda8bf-0b51-4df9-bd1e-d810430a3d49-rkinfotechindia-com/assets/images/graphics_design-4.jpg",
-      link: "https://www.rkinfotechindia.com/services/graphic-design-services/"
+      link: "/services/graphic-design-services/"
     },
     {
       title: "SEO Service",
       description: "Improving your website visibility and search engine rankings to drive more organic traffic and growth.",
       icon: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c7eda8bf-0b51-4df9-bd1e-d810430a3d49-rkinfotechindia-com/assets/images/seo_service-10.png",
       bgImage: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c7eda8bf-0b51-4df9-bd1e-d810430a3d49-rkinfotechindia-com/assets/images/seo_services-5.jpg",
-      link: "https://www.rkinfotechindia.com/services/best-seo-services-in-india/"
+      link: "/services/best-seo-services-in-india/"
     },
     {
       title: "Software Development",
       description: "Custom software solutions designed to automate business processes and increase organizational efficiency.",
       icon: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c7eda8bf-0b51-4df9-bd1e-d810430a3d49-rkinfotechindia-com/assets/images/Software_Development-11.png",
       bgImage: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c7eda8bf-0b51-4df9-bd1e-d810430a3d49-rkinfotechindia-com/assets/images/software_development-6.jpg",
-      link: "https://www.rkinfotechindia.com/services/software-development-company/"
+      link: "/services/software-development-company/"
     }
   ];
 
   return (
-    <section id="services" className="bg-[#f9f9f9] py-20">
+    <section id="services" className="bg-[#0f172a] py-20 border-t border-white/5">
       <div className="container px-[15px] mx-auto max-w-[1170px]">
         {/* Section Header */}
         <div className="mb-14 text-center">
-          <h2 className="mb-4 font-display text-[36px] font-semibold leading-[1.3] text-[#333333]">
-            Our <span className="text-[#28a745]">Services</span>
+          <h2 className="mb-4 font-display text-[36px] font-semibold leading-[1.3] text-white">
+            Our <span className="text-primary">Services</span>
           </h2>
-          <div className="mx-auto h-1 w-20 bg-[#28a745]" />
-          <p className="mx-auto mt-6 max-w-2xl font-body text-base text-[#737373]">
+          <div className="mx-auto h-1 w-20 bg-primary rounded-full" />
+          <p className="mx-auto mt-6 max-w-2xl font-body text-base text-slate-400">
             We provide a wide range of creative and technical services to help your business grow and succeed in the digital world.
           </p>
         </div>
@@ -138,14 +142,20 @@ const ServicesSection = () => {
 
         {/* View All Button */}
         <div className="mt-16 text-center">
-          <a 
-            href="https://www.rkinfotechindia.com/our-services/" 
-            className="hvr-wobble-horizontal inline-block rounded-[8px] px-8 py-3 font-display text-sm font-bold uppercase tracking-wider text-white grdnt-green transition-all"
+          <Link 
+            href="/our-services/" 
+            className="hvr-wobble-horizontal inline-block rounded-[8px] px-8 py-3 font-display text-sm font-bold uppercase tracking-wider text-white grdnt-green transition-all shadow-lg shadow-primary/20"
           >
             Explore All Services
-          </a>
+          </Link>
         </div>
       </div>
+
+      <style jsx global>{`
+        .grdnt-green {
+          background: linear-gradient(to right, #1d4ed8, #3b82f6);
+        }
+      `}</style>
     </section>
   );
 };

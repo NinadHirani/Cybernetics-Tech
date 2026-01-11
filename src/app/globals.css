@@ -5,52 +5,52 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --color-background: #ffffff;
-  --color-foreground: #333333;
+  --color-background: #0f172a;
+  --color-foreground: #f8fafc;
 
-  --color-card: #ffffff;
-  --color-card-foreground: #333333;
+  --color-card: #1e293b;
+  --color-card-foreground: #f8fafc;
 
-  --color-popover: #ffffff;
-  --color-popover-foreground: #333333;
+  --color-popover: #1e293b;
+  --color-popover-foreground: #f8fafc;
 
-  --color-primary: #28a745;
+  --color-primary: #3b82f6;
   --color-primary-foreground: #ffffff;
 
-  --color-secondary: #f9f9f9;
-  --color-secondary-foreground: #333333;
+  --color-secondary: #334155;
+  --color-secondary-foreground: #f8fafc;
 
-  --color-muted: #f9f9f9;
-  --color-muted-foreground: #737373;
+  --color-muted: #334155;
+  --color-muted-foreground: #94a3b8;
 
-  --color-accent: #00b09b;
+  --color-accent: #60a5fa;
   --color-accent-foreground: #ffffff;
 
   --color-destructive: #ef4444;
   --color-destructive-foreground: #fafafa;
 
-  --color-border: #eeeeee;
-  --color-input: #eeeeee;
-  --color-ring: #28a745;
+  --color-border: #334155;
+  --color-input: #334155;
+  --color-ring: #3b82f6;
 
-  --color-chart-1: #28a745;
-  --color-chart-2: #00b09b;
-  --color-chart-3: #96c93d;
-  --color-chart-4: #333333;
-  --color-chart-5: #eeeeee;
+  --color-chart-1: #3b82f6;
+  --color-chart-2: #60a5fa;
+  --color-chart-3: #93c5fd;
+  --color-chart-4: #cbd5e1;
+  --color-chart-5: #f8fafc;
 
-  --color-sidebar: #f7f7f7;
-  --color-sidebar-foreground: #404040;
-  --color-sidebar-primary: #28a745;
-  --color-sidebar-primary-foreground: #ffffff;
-  --color-sidebar-accent: #f0f0f0;
-  --color-sidebar-accent-foreground: #28a745;
-  --color-sidebar-border: #d4d4d8;
-  --color-sidebar-ring: #28a745;
+  --color-sidebar: #0f172a;
+  --color-sidebar-foreground: #f1f5f9;
+  --color-sidebar-primary: #3b82f6;
+  --sidebar-primary-foreground: #ffffff;
+  --color-sidebar-accent: #1e293b;
+  --color-sidebar-accent-foreground: #3b82f6;
+  --color-sidebar-border: #334155;
+  --color-sidebar-ring: #3b82f6;
 
-  --color-grdnt-green-start: #00b09b;
-  --color-grdnt-green-end: #96c93d;
-  --color-footer-bg: #222222;
+  --color-grdnt-green-start: #1d4ed8;
+  --color-grdnt-green-end: #3b82f6;
+  --color-footer-bg: #020617;
 
   --font-display: "Montserrat", sans-serif;
   --font-body: "Roboto", sans-serif;
@@ -93,34 +93,34 @@
 
 @layer base {
   :root {
-    --background: #ffffff;
-    --foreground: #333333;
-    --card: #ffffff;
-    --card-foreground: #333333;
-    --popover: #ffffff;
-    --popover-foreground: #333333;
-    --primary: #28a745;
+    --background: #0f172a;
+    --foreground: #f8fafc;
+    --card: #1e293b;
+    --card-foreground: #f8fafc;
+    --popover: #1e293b;
+    --popover-foreground: #f8fafc;
+    --primary: #3b82f6;
     --primary-foreground: #ffffff;
-    --secondary: #f9f9f9;
-    --secondary-foreground: #333333;
-    --muted: #f9f9f9;
-    --muted-foreground: #737373;
-    --accent: #00b09b;
+    --secondary: #334155;
+    --secondary-foreground: #f8fafc;
+    --muted: #334155;
+    --muted-foreground: #94a3b8;
+    --accent: #60a5fa;
     --accent-foreground: #ffffff;
     --destructive: #ef4444;
     --destructive-foreground: #fafafa;
-    --border: #eeeeee;
-    --input: #eeeeee;
-    --ring: #28a745;
+    --border: #334155;
+    --input: #334155;
+    --ring: #3b82f6;
     --radius: 0.5rem;
-    --sidebar-background: #f7f7f7;
-    --sidebar-foreground: #404040;
-    --sidebar-primary: #28a745;
+    --sidebar-background: #0f172a;
+    --sidebar-foreground: #f1f5f9;
+    --sidebar-primary: #3b82f6;
     --sidebar-primary-foreground: #ffffff;
-    --sidebar-accent: #f0f0f0;
-    --sidebar-accent-foreground: #28a745;
-    --sidebar-border: #d4d4d8;
-    --sidebar-ring: #28a745;
+    --sidebar-accent: #1e293b;
+    --sidebar-accent-foreground: #3b82f6;
+    --sidebar-border: #334155;
+    --sidebar-ring: #3b82f6;
   }
 }
 
@@ -144,7 +144,7 @@
     font-family: var(--font-display);
     font-weight: 700;
     line-height: 1.2;
-    color: #333333;
+    @apply text-foreground;
   }
 
   h1 {
