@@ -71,35 +71,10 @@ interface Column {
               { name: "Logo Design", href: "/services" },
             ],
           },
-        ] as Column[],
-      },
-      {
-        title: "Products",
-        href: "/products",
-        isMega: true,
-        columns: [
+          ] as Column[],
+        },
           {
-            items: [
-              { name: "Online Exam Software", href: "/services" },
-              { name: "Lead Management", href: "/services" },
-              { name: "Fees Management", href: "/services" },
-              { name: "Bulk Cheque Printing", href: "/services" },
-              { name: "Business ERP", href: "/services" },
-            ],
-          },
-          {
-            items: [
-              { name: "Sales CRM", href: "/services" },
-              { name: "Jewellery Tag Printing", href: "/services" },
-              { name: "Asset Management", href: "/services" },
-              { name: "Library Systems", href: "/services" },
-              { name: "Vehicle Management", href: "/services" },
-            ],
-          },
-        ] as Column[],
-      },
-        {
-          title: "Hire Experts",
+            title: "Hire Experts",
         href: "/contact-us",
         isFlyout: true,
         items: [
