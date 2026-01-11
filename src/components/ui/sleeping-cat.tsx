@@ -16,6 +16,8 @@ export function SleepingCat({ className }: SleepingCatProps) {
   const springConfig = { damping: 20, stiffness: 150 };
   const eyeX = useSpring(mouseX, springConfig);
   const eyeY = useSpring(mouseY, springConfig);
+  const [isHovered, setIsHovered] = useState(false);
+  const [showBubble, setShowBubble] = useState(false);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -27,6 +29,10 @@ export function SleepingCat({ className }: SleepingCatProps) {
       // Calculate relative distance (-1 to 1)
       const dx = (e.clientX - catCenterX) / (window.innerWidth / 2);
       const dy = (e.clientY - catCenterY) / (window.innerHeight / 2);
+
+      // Distance for bubble trigger
+      const dist = Math.sqrt(Math.pow(e.clientX - catCenterX, 2) + Math.pow(e.clientY - catCenterY, 2));
+      setShowBubble(dist < 150);
 
       // Clamp values and set motion values (max 3px movement)
       mouseX.set(Math.max(-3, Math.min(3, dx * 5)));
@@ -41,26 +47,56 @@ export function SleepingCat({ className }: SleepingCatProps) {
     <div ref={catRef} className={cn("relative", className)}>
       <Link 
         href="/contact-us"
-        className="relative flex items-center justify-center cursor-pointer group transition-transform hover:scale-110"
+        className="relative flex items-center justify-center cursor-pointer group"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
       >
+        {/* Eye-catching Glow */}
+        <motion.div
+          className="absolute inset-0 bg-primary/20 blur-2xl rounded-full"
+          animate={{
+            scale: isHovered ? 1.5 : [1, 1.2, 1],
+            opacity: isHovered ? 0.6 : 0.2
+          }}
+          transition={{ duration: 2, repeat: Infinity }}
+        />
+
+        {/* Speech Bubble */}
+        <motion.div
+          initial={{ scale: 0, opacity: 0, y: 10 }}
+          animate={{ 
+            scale: showBubble || isHovered ? 1 : 0, 
+            opacity: showBubble || isHovered ? 1 : 0,
+            y: showBubble || isHovered ? -45 : 0 
+          }}
+          className="absolute -top-12 left-1/2 -translate-x-1/2 bg-primary text-white text-[10px] font-bold px-3 py-1.5 rounded-full shadow-lg pointer-events-none whitespace-nowrap z-20"
+        >
+          Meow! Hire us?
+          <div className="absolute bottom-[-4px] left-1/2 -translate-x-1/2 w-2 h-2 bg-primary rotate-45" />
+        </motion.div>
+
         <svg
           viewBox="0 0 100 60"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="w-16 h-auto"
+          className="w-20 h-auto relative z-10 transition-transform duration-500 group-hover:scale-110"
         >
-          {/* Cat Body - Curled up */}
+          {/* Cat Body - Curled up with texture/spots */}
           <motion.path
             d="M85 45 C85 55 15 55 15 45 C15 25 45 15 65 15 C85 15 95 35 85 45 Z"
             fill="#E2E8F0"
             stroke="#94A3B8"
             strokeWidth="1.5"
-            initial={{ scale: 0.98 }}
             animate={{ 
               scale: [0.98, 1, 0.98],
               transition: { duration: 3, repeat: Infinity, ease: "easeInOut" }
             }}
           />
+          
+          {/* Spots for realism */}
+          <circle cx="70" cy="30" r="4" fill="#CBD5E1" />
+          <circle cx="60" cy="40" r="3" fill="#CBD5E1" />
+          <circle cx="25" cy="40" r="5" fill="#CBD5E1" />
           
           {/* Head */}
           <motion.path
@@ -68,90 +104,96 @@ export function SleepingCat({ className }: SleepingCatProps) {
             fill="#E2E8F0"
             stroke="#94A3B8"
             strokeWidth="1.5"
-            initial={{ rotate: 0 }}
             animate={{ 
-              rotate: [-1, 1, -1],
-              transition: { duration: 4, repeat: Infinity, ease: "easeInOut" }
+              rotate: isHovered ? [-2, 2, -2] : [-1, 1, -1],
+              transition: { duration: isHovered ? 0.5 : 4, repeat: Infinity, ease: "easeInOut" }
             }}
           />
           
-          {/* Ears */}
-          <path
+          {/* Ears with twitch */}
+          <motion.path
             d="M25 20 L22 10 L30 18"
             fill="#E2E8F0"
             stroke="#94A3B8"
             strokeWidth="1"
+            animate={{ rotate: [0, -5, 0, -5, 0] }}
+            transition={{ repeat: Infinity, duration: 5, delay: 2 }}
           />
-          <path
+          <motion.path
             d="M45 18 L48 10 L50 22"
             fill="#E2E8F0"
             stroke="#94A3B8"
             strokeWidth="1"
+            animate={{ rotate: [0, 5, 0, 5, 0] }}
+            transition={{ repeat: Infinity, duration: 5, delay: 1 }}
           />
           
-          {/* Eyes - Open and tracking */}
-          {/* Left Eye */}
+          {/* Eyes - Glowing when hovered */}
           <g transform="translate(32, 32)">
             <ellipse cx="0" cy="0" rx="4" ry="2.5" fill="white" stroke="#94A3B8" strokeWidth="0.5" />
             <motion.circle 
               cx="0" 
               cy="0" 
               r="1.5" 
-              fill="#1E293B"
+              fill={isHovered ? "#3B82F6" : "#1E293B"}
               style={{ x: eyeX, y: eyeY }}
+              animate={isHovered ? { r: [1.5, 2, 1.5] } : {}}
+              transition={{ repeat: Infinity, duration: 1 }}
             />
           </g>
           
-          {/* Right Eye */}
           <g transform="translate(48, 32)">
             <ellipse cx="0" cy="0" rx="4" ry="2.5" fill="white" stroke="#94A3B8" strokeWidth="0.5" />
             <motion.circle 
               cx="0" 
               cy="0" 
               r="1.5" 
-              fill="#1E293B"
+              fill={isHovered ? "#3B82F6" : "#1E293B"}
               style={{ x: eyeX, y: eyeY }}
+              animate={isHovered ? { r: [1.5, 2, 1.5] } : {}}
+              transition={{ repeat: Infinity, duration: 1 }}
             />
           </g>
           
           {/* Nose */}
-          <circle cx="40" cy="38" r="1.5" fill="#F472B6" opacity="0.6" />
+          <circle cx="40" cy="38" r="1.5" fill="#F472B6" opacity="0.8" />
           
-          {/* Whiskers */}
-          <path d="M25 38 L15 36" stroke="#94A3B8" strokeWidth="0.5" />
-          <path d="M25 40 L15 42" stroke="#94A3B8" strokeWidth="0.5" />
-          <path d="M55 38 L65 36" stroke="#94A3B8" strokeWidth="0.5" />
-          <path d="M55 40 L65 42" stroke="#94A3B8" strokeWidth="0.5" />
-  
-          {/* Tail tucked in */}
+          {/* Whiskers - Moving slightly */}
+          <motion.g animate={{ x: [-0.5, 0.5, -0.5] }} transition={{ repeat: Infinity, duration: 2 }}>
+            <path d="M25 38 L15 36" stroke="#94A3B8" strokeWidth="0.5" />
+            <path d="M25 40 L15 42" stroke="#94A3B8" strokeWidth="0.5" />
+            <path d="M55 38 L65 36" stroke="#94A3B8" strokeWidth="0.5" />
+            <path d="M55 40 L65 42" stroke="#94A3B8" strokeWidth="0.5" />
+          </motion.g>
+    
+          {/* Tail with more expressive flick */}
           <motion.path
             d="M85 45 C95 45 95 25 80 25"
             stroke="#94A3B8"
-            strokeWidth="2"
+            strokeWidth="2.5"
             strokeLinecap="round"
             animate={{ 
-              rotate: [0, 5, 0],
-              transition: { duration: 5, repeat: Infinity, ease: "easeInOut" }
+              rotate: [0, 15, -5, 15, 0],
+              x: [0, 2, -1, 2, 0]
             }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
           />
-  
-          {/* Zzz floating - reduced frequency as cat is peeking */}
-          <motion.g
-            initial={{ opacity: 0, y: 0 }}
-            animate={{ 
-              opacity: [0, 0.4, 0],
-              y: [-10, -25],
-              x: [0, 5]
-            }}
-            transition={{ duration: 4, repeat: Infinity, delay: 0 }}
-          >
-            <text x="60" y="15" fontSize="8" fill="#94A3B8" fontWeight="bold">Z</text>
-          </motion.g>
+    
+          {/* Zzz floating */}
+          {!isHovered && (
+            <motion.g
+              initial={{ opacity: 0, y: 0 }}
+              animate={{ 
+                opacity: [0, 0.4, 0],
+                y: [-10, -25],
+                x: [0, 5]
+              }}
+              transition={{ duration: 4, repeat: Infinity }}
+            >
+              <text x="60" y="15" fontSize="8" fill="#94A3B8" fontWeight="bold">Z</text>
+            </motion.g>
+          )}
         </svg>
-        
-        <div className="absolute -bottom-6 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap bg-white/10 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] text-slate-400 border border-white/5">
-          Watching you... Click to chat!
-        </div>
       </Link>
     </div>
   );
