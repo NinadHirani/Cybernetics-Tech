@@ -105,13 +105,14 @@ const Footer = () => {
           <div className="text-[14px]">
             © {new Date().getFullYear()} Cybernetics-Tech. All Rights Reserved.
           </div>
-          <div className="flex items-center gap-6">
-            <ul className="flex gap-6 text-[14px]">
-              <li><a href="#" className="hover:text-primary">Privacy Policy</a></li>
-              <li><a href="#" className="hover:text-primary">Refund Policy</a></li>
-              <li><a href="#" className="hover:text-primary">Cancellation Policy</a></li>
-            </ul>
-          </div>
+            <div className="flex items-center gap-6">
+              <ul className="flex gap-6 text-[14px]">
+                <li><Link href="/privacy-policy" className="hover:text-primary">Privacy Policy</Link></li>
+                <li><Link href="/refund-policy" className="hover:text-primary">Refund Policy</Link></li>
+                <li><Link href="/cancellation-policy" className="hover:text-primary">Cancellation Policy</Link></li>
+              </ul>
+            </div>
+
         </div>
       </div>
     </footer>
