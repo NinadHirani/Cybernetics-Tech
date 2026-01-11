@@ -16,13 +16,21 @@ interface Column {
   items: SubMenuItem[];
 }
 
-const Navbar = () => {
-  const [isAffixed, setIsAffixed] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeSubMenu, setActiveSubMenu] = useState<string | null>(null);
+  const Navbar = () => {
+    const [isAffixed, setIsAffixed] = useState(false);
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [activeSubMenu, setActiveSubMenu] = useState<string | null>(null);
 
-  useEffect(() => {
-    const handleScroll = () => {
+    useEffect(() => {
+      if (mobileMenuOpen) {
+        document.body.style.overflow = "hidden";
+      } else {
+        document.body.style.overflow = "unset";
+      }
+    }, [mobileMenuOpen]);
+
+    useEffect(() => {
+      const handleScroll = () => {
       if (window.scrollY > 50) {
         setIsAffixed(true);
       } else {
@@ -221,7 +229,7 @@ const Navbar = () => {
                  ×
                </button>
             </div>
-            <div className="flex-1 overflow-y-auto p-8">
+            <div className="flex-1 p-8">
               <ul className="space-y-6 font-display font-bold text-[18px] uppercase tracking-wider mb-8">
                 {menuItems.map((item, idx) => (
                   <li key={idx} className="border-b border-white/5 pb-4">
