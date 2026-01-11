@@ -40,11 +40,10 @@ export default function ContactUsPage() {
                   <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
                     <Mail className="text-primary w-6 h-6" />
                   </div>
-                  <div>
-                    <h4 className="text-white font-bold mb-2">Email Address</h4>
-                    <p className="text-slate-400 text-sm">info@cybernetics-tech.com</p>
-                    <p className="text-slate-400 text-sm">sales@cybernetics-tech.com</p>
-                  </div>
+                    <div>
+                      <h4 className="text-white font-bold mb-2">Email Address</h4>
+                      <p className="text-slate-400 text-sm">cyberneticstech001@gmail.com</p>
+                    </div>
                 </div>
               </div>
             </div>

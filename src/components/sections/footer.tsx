@@ -96,12 +96,12 @@ const Footer = () => {
                     Rajkot Gujarat
                   </p>
               </div>
-              <div className="flex items-center gap-3">
-                <Mail className="text-primary w-5 h-5 shrink-0" />
-                <a href="mailto:info@cybernetics-tech.com" className="hover:text-primary truncate">
-                  info@cybernetics-tech.com
-                </a>
-              </div>
+                <div className="flex items-center gap-3">
+                  <Mail className="text-primary w-5 h-5 shrink-0" />
+                  <a href="mailto:cyberneticstech001@gmail.com" className="hover:text-primary truncate">
+                    cyberneticstech001@gmail.com
+                  </a>
+                </div>
             </div>
             
             <div className="mt-8">
