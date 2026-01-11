@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState, useEffect, useRef } from "react";
 import { motion, useSpring, useMotionValue } from "framer-motion";
 import Link from "next/link";
@@ -135,7 +137,7 @@ export function SleepingCat({ className }: SleepingCatProps) {
               cx="0" 
               cy="0" 
               r="1.5" 
-              fill={isHovered ? "#3B82F6" : "#1E293B"}
+                fill={isHovered ? "#FF0000" : "#1E293B"}
               style={{ x: eyeX, y: eyeY }}
               animate={isHovered ? { r: [1.5, 2, 1.5] } : {}}
               transition={{ repeat: Infinity, duration: 1 }}
@@ -148,7 +150,7 @@ export function SleepingCat({ className }: SleepingCatProps) {
               cx="0" 
               cy="0" 
               r="1.5" 
-              fill={isHovered ? "#3B82F6" : "#1E293B"}
+                fill={isHovered ? "#FF0000" : "#1E293B"}
               style={{ x: eyeX, y: eyeY }}
               animate={isHovered ? { r: [1.5, 2, 1.5] } : {}}
               transition={{ repeat: Infinity, duration: 1 }}

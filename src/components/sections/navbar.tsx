@@ -102,7 +102,7 @@ interface Column {
                 <Link href="/" className="block transition-transform hover:scale-105">
                   <Logo className="scale-90" />
                 </Link>
-                <SleepingCat className="hidden sm:flex" />
+                <SleepingCat className="flex" />
               </div>
 
 
