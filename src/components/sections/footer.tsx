@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Twitter, Youtube } from 'lucide-react';
+import { Logo } from '@/components/ui/logo';
 
 const Footer = () => {
   return (
@@ -10,10 +11,32 @@ const Footer = () => {
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[30px] mb-[50px]">
           
-          {/* Company Column */}
+          {/* Brand Column */}
+          <div className="footer-col lg:col-span-1">
+            <Logo className="mb-[25px]" />
+            <p className="text-[14px] leading-[24px] mb-6 pr-4">
+              Cybernetics-Tech provides reliable and affordable IT solutions for your business growth. End-to-end technology solutions tailored to your needs.
+            </p>
+            <div className="flex gap-2 mb-8">
+              <a href="#" className="w-10 h-10 rounded-full border border-zinc-700 flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-300 group">
+                <Facebook className="w-4 h-4 text-white group-hover:scale-110" />
+              </a>
+              <a href="#" className="w-10 h-10 rounded-full border border-zinc-700 flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-300 group">
+                <Twitter className="w-4 h-4 text-white group-hover:scale-110" />
+              </a>
+              <a href="#" className="w-10 h-10 rounded-full border border-zinc-700 flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-300 group">
+                <Linkedin className="w-4 h-4 text-white group-hover:scale-110" />
+              </a>
+              <a href="#" className="w-10 h-10 rounded-full border border-zinc-700 flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-300 group">
+                <Instagram className="w-4 h-4 text-white group-hover:scale-110" />
+              </a>
+            </div>
+          </div>
+
+          {/* Quick Links Column */}
           <div className="footer-col">
-            <h3 className="text-white font-display text-[20px] font-semibold mb-[30px] relative pb-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-[50px] after:h-[2px] after:bg-primary">
-              Company
+            <h3 className="text-white font-display text-[18px] font-semibold mb-[30px] relative pb-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-[40px] after:h-[2px] after:bg-primary uppercase tracking-wider">
+              Quick Links
             </h3>
             <ul className="space-y-[12px]">
               <li>
@@ -92,32 +115,8 @@ const Footer = () => {
                 </a>
               </div>
             </div>
-          </div>
-
-          {/* Social Media & Members Column */}
-          <div className="footer-col">
-            <h3 className="text-white font-display text-[20px] font-semibold mb-[30px] relative pb-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-[50px] after:h-[2px] after:bg-primary">
-              Follow Us
-            </h3>
-            <div className="flex gap-2 mb-8">
-              <a href="#" className="w-10 h-10 rounded-full border border-zinc-700 flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-300 group">
-                <Facebook className="w-4 h-4 text-white group-hover:scale-110" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full border border-zinc-700 flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-300 group">
-                <Twitter className="w-4 h-4 text-white group-hover:scale-110" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full border border-zinc-700 flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-300 group">
-                <Linkedin className="w-4 h-4 text-white group-hover:scale-110" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full border border-zinc-700 flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-300 group">
-                <Instagram className="w-4 h-4 text-white group-hover:scale-110" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full border border-zinc-700 flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-300 group">
-                <Youtube className="w-4 h-4 text-white group-hover:scale-110" />
-              </a>
-            </div>
             
-            <div className="mt-6">
+            <div className="mt-8">
               <h4 className="text-white text-[15px] font-semibold mb-4">Membership</h4>
               <div className="flex items-center gap-4">
                 <Image 
@@ -137,6 +136,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
+
         </div>
 
         {/* Bottom Bar */}

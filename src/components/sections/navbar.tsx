@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { ChevronDown, Menu, Check } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Logo } from "@/components/ui/logo";
 
 interface SubMenuItem {
   name: string;
@@ -134,8 +134,6 @@ const Navbar = () => {
     },
   ];
 
-  const logoLight = "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/c7eda8bf-0b51-4df9-bd1e-d810430a3d49/Screenshot-2025-12-25-at-9.03.20-PM-1768114807999.png?width=8000&height=8000&resize=contain";
-
   return (
     <header className="relative">
       <nav
@@ -150,14 +148,7 @@ const Navbar = () => {
             {/* Logo Section */}
             <div className="flex-shrink-0">
               <Link href="/" className="block">
-                <Image
-                  src={logoLight}
-                  alt="Cybernetics-Tech"
-                  width={185}
-                  height={45}
-                  className="max-h-[45px] w-auto transition-all duration-300 invert brightness-200"
-                  priority
-                />
+                <Logo />
               </Link>
             </div>
 
@@ -260,13 +251,9 @@ const Navbar = () => {
           )}
         >
           <div className="flex items-center justify-between p-4 border-b border-white/5">
-             <Image
-                src={logoLight}
-                alt="Cybernetics-Tech"
-                width={150}
-                height={36}
-                className="invert brightness-200"
-             />
+             <Link href="/" onClick={() => setMobileMenuOpen(false)}>
+               <Logo />
+             </Link>
              <button onClick={() => setMobileMenuOpen(false)} className="text-[32px] font-light leading-none text-white">
                ×
              </button>
