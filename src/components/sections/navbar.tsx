@@ -97,30 +97,29 @@ const Navbar = () => {
           },
         ] as Column[],
       },
-      {
-        title: "Ready Solutions",
-        href: "/services",
-        isMega: true,
-        columns: [
-          {
-            items: [
-              { name: "E-commerce Automobile", href: "/services" },
-              { name: "Online Vegetable Store", href: "/services" },
-              { name: "Matrimonial Portal", href: "/services" },
-            ],
-          },
-          {
-            items: [
-              { name: "Hotel & Restaurant", href: "/services" },
-              { name: "Insurance Management", href: "/services" },
-              { name: "School & Hostel Portal", href: "/services" },
-            ],
-          },
-        ] as Column[],
-      },
-      { title: "Our Work", href: "/our-work" },
-      {
-        title: "Hire Developers",
+        {
+          title: "Ready Solutions",
+          href: "/services",
+          isMega: true,
+          columns: [
+            {
+              items: [
+                { name: "E-commerce Automobile", href: "/services" },
+                { name: "Online Vegetable Store", href: "/services" },
+                { name: "Matrimonial Portal", href: "/services" },
+              ],
+            },
+            {
+              items: [
+                { name: "Hotel & Restaurant", href: "/services" },
+                { name: "Insurance Management", href: "/services" },
+                { name: "School & Hostel Portal", href: "/services" },
+              ],
+            },
+          ] as Column[],
+        },
+        {
+          title: "Hire Developers",
         href: "/contact-us",
         isFlyout: true,
         items: [
