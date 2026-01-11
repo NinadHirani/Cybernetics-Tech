@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Linkedin, Mail, MapPin } from 'lucide-react';
+import { Github, Linkedin, Mail, MapPin } from 'lucide-react';
 import { Logo } from '@/components/ui/logo';
 
 const Footer = () => {
@@ -25,6 +25,14 @@ const Footer = () => {
                 className="w-10 h-10 rounded-full border border-zinc-700 flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-300 group"
               >
                 <Linkedin className="w-4 h-4 text-white group-hover:scale-110" />
+              </a>
+              <a 
+                href="https://github.com/cybernetics-tech" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-10 h-10 rounded-full border border-zinc-700 flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-300 group"
+              >
+                <Github className="w-4 h-4 text-white group-hover:scale-110" />
               </a>
             </div>
           </div>

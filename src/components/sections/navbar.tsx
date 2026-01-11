@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { ChevronDown, Menu, Check } from "lucide-react";
+import { ChevronDown, Menu, Check, Github } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Logo } from "@/components/ui/logo";
 import { SleepingCat } from "@/components/ui/sleeping-cat";
@@ -106,81 +106,90 @@ interface Column {
               </div>
 
 
-            {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center space-x-2">
-              <ul className="flex items-center list-none m-0 p-0 text-[14px] font-bold font-display uppercase tracking-wider">
-                {menuItems.map((item, idx) => (
-                  <li key={idx} className="group relative px-4 py-6">
-                    <Link
-                      href={item.href}
-                      className={cn(
-                        "transition-colors duration-300 flex items-center hover:text-primary text-slate-300 group-hover:text-white"
-                      )}
-                    >
-                      {item.title}
-                      {(item.isMega || item.isFlyout) && (
-                        <ChevronDown className="ml-1 w-4 h-4 opacity-50 group-hover:rotate-180 transition-transform duration-500" />
-                      )}
-                    </Link>
-
-                    {/* Mega Menu / Dropdown */}
-                    {(item.isMega || item.isFlyout) && (
-                      <div className="absolute top-full left-1/2 -translate-x-1/2 invisible opacity-0 translate-y-2 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out pt-2">
-                        <div className={cn(
-                          "bg-slate-900/95 backdrop-blur-2xl border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] p-8 rounded-2xl overflow-hidden",
-                          item.isMega ? "w-[640px] grid grid-cols-2 gap-10" : "w-[260px]"
-                        )}>
-                          {item.isMega ? (
-                            item.columns?.map((col: Column, colIdx: number) => (
-                              <div key={colIdx}>
-                                {col.title && (
-                                  <h4 className="text-[12px] font-bold text-primary mb-5 uppercase tracking-[0.2em]">
-                                    {col.title}
-                                  </h4>
-                                )}
+                <div className="hidden lg:flex items-center space-x-2">
+                  <ul className="flex items-center list-none m-0 p-0 text-[14px] font-bold font-display uppercase tracking-wider">
+                    {menuItems.map((item, idx) => (
+                      <li key={idx} className="group relative px-4 py-6">
+                        <Link
+                          href={item.href}
+                          className={cn(
+                            "transition-colors duration-300 flex items-center hover:text-primary text-slate-300 group-hover:text-white"
+                          )}
+                        >
+                          {item.title}
+                          {(item.isMega || item.isFlyout) && (
+                            <ChevronDown className="ml-1 w-4 h-4 opacity-50 group-hover:rotate-180 transition-transform duration-500" />
+                          )}
+                        </Link>
+  
+                        {/* Mega Menu / Dropdown */}
+                        {(item.isMega || item.isFlyout) && (
+                          <div className="absolute top-full left-1/2 -translate-x-1/2 invisible opacity-0 translate-y-2 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out pt-2">
+                            <div className={cn(
+                              "bg-slate-900/95 backdrop-blur-2xl border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] p-8 rounded-2xl overflow-hidden",
+                              item.isMega ? "w-[640px] grid grid-cols-2 gap-10" : "w-[260px]"
+                            )}>
+                              {item.isMega ? (
+                                item.columns?.map((col: Column, colIdx: number) => (
+                                  <div key={colIdx}>
+                                    {col.title && (
+                                      <h4 className="text-[12px] font-bold text-primary mb-5 uppercase tracking-[0.2em]">
+                                        {col.title}
+                                      </h4>
+                                    )}
+                                    <ul className="space-y-3">
+                                      {col.items.map((sub: SubMenuItem, subIdx: number) => (
+                                        <li key={subIdx}>
+                                          <Link
+                                            href={sub.href}
+                                            className="text-slate-400 hover:text-white text-[13px] transition-all flex items-center gap-3 group/link"
+                                          >
+                                            <div className="w-1 h-1 bg-primary/40 rounded-full group-hover/link:w-3 group-hover/link:bg-primary transition-all duration-300"></div>
+                                            <span className="leading-tight">{sub.name}</span>
+                                          </Link>
+                                        </li>
+                                      ))}
+                                    </ul>
+                                  </div>
+                                ))
+                              ) : (
                                 <ul className="space-y-3">
-                                  {col.items.map((sub: SubMenuItem, subIdx: number) => (
+                                  {item.items?.map((sub: SubMenuItem, subIdx: number) => (
                                     <li key={subIdx}>
                                       <Link
                                         href={sub.href}
-                                        className="text-slate-400 hover:text-white text-[13px] transition-all flex items-center gap-3 group/link"
+                                        className="text-slate-400 hover:text-white text-[13px] flex items-center gap-3 group/link"
                                       >
                                         <div className="w-1 h-1 bg-primary/40 rounded-full group-hover/link:w-3 group-hover/link:bg-primary transition-all duration-300"></div>
-                                        <span className="leading-tight">{sub.name}</span>
+                                        {sub.name}
                                       </Link>
                                     </li>
                                   ))}
                                 </ul>
-                              </div>
-                            ))
-                          ) : (
-                            <ul className="space-y-3">
-                              {item.items?.map((sub: SubMenuItem, subIdx: number) => (
-                                <li key={subIdx}>
-                                  <Link
-                                    href={sub.href}
-                                    className="text-slate-400 hover:text-white text-[13px] flex items-center gap-3 group/link"
-                                  >
-                                    <div className="w-1 h-1 bg-primary/40 rounded-full group-hover/link:w-3 group-hover/link:bg-primary transition-all duration-300"></div>
-                                    {sub.name}
-                                  </Link>
-                                </li>
-                              ))}
-                            </ul>
-                          )}
-                        </div>
-                      </div>
-                    )}
-                  </li>
-                ))}
-                </ul>
-                <Link
-                  href="/contact-us"
-                  className="ml-6 hidden lg:flex items-center justify-center bg-primary hover:bg-primary/90 text-white px-6 py-2.5 rounded-full font-bold uppercase text-[12px] tracking-widest transition-all shadow-[0_4px_14px_0_rgba(59,130,246,0.39)] hover:shadow-[0_6px_20px_rgba(59,130,246,0.23)] hover:-translate-y-0.5 active:scale-95"
-                >
-                  Contact Us
-                </Link>
-              </div>
+                              )}
+                            </div>
+                          </div>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="flex items-center ml-4 gap-4">
+                    <a 
+                      href="https://github.com/cybernetics-tech" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="text-slate-300 hover:text-white transition-colors p-2"
+                    >
+                      <Github className="w-5 h-5" />
+                    </a>
+                    <Link
+                      href="/contact-us"
+                      className="flex items-center justify-center bg-primary hover:bg-primary/90 text-white px-6 py-2.5 rounded-full font-bold uppercase text-[12px] tracking-widest transition-all shadow-[0_4px_14px_0_rgba(59,130,246,0.39)] hover:shadow-[0_6px_20px_rgba(59,130,246,0.23)] hover:-translate-y-0.5 active:scale-95"
+                    >
+                      Contact Us
+                    </Link>
+                  </div>
+                </div>
 
               {/* Mobile Menu Toggle */}
               <button
@@ -247,14 +256,24 @@ interface Column {
                   </li>
                 ))}
               </ul>
-              <Link
-                href="/contact-us"
-                onClick={() => setMobileMenuOpen(false)}
-                className="block text-center grdnt-green text-white py-4 rounded-xl font-bold uppercase tracking-widest shadow-lg active:scale-95 transition-transform"
-              >
-                Contact Us
-              </Link>
-            </div>
+                <Link
+                  href="/contact-us"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block text-center grdnt-green text-white py-4 rounded-xl font-bold uppercase tracking-widest shadow-lg active:scale-95 transition-transform mb-6"
+                >
+                  Contact Us
+                </Link>
+                <div className="flex justify-center gap-6">
+                  <a 
+                    href="https://github.com/cybernetics-tech" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-primary transition-colors"
+                  >
+                    <Github className="w-6 h-6" />
+                  </a>
+                </div>
+              </div>
           </div>
       </nav>
     </header>
