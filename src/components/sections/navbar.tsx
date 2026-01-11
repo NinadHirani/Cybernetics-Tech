@@ -71,7 +71,7 @@ const Navbar = () => {
       },
       {
         title: "Our Products",
-        href: "/services",
+        href: "/products",
         isMega: true,
         columns: [
           {
