@@ -188,71 +188,84 @@ const Navbar = () => {
                   </li>
                 ))}
                 </ul>
+                <Link
+                  href="/contact-us"
+                  className="ml-6 hidden lg:flex items-center justify-center bg-primary hover:bg-primary/90 text-white px-6 py-2.5 rounded-full font-bold uppercase text-[12px] tracking-widest transition-all shadow-[0_4px_14px_0_rgba(59,130,246,0.39)] hover:shadow-[0_6px_20px_rgba(59,130,246,0.23)] hover:-translate-y-0.5 active:scale-95"
+                >
+                  Contact Us
+                </Link>
               </div>
 
               {/* Mobile Menu Toggle */}
-            <button
-              className="lg:hidden p-2 text-white"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            >
-              <Menu className="w-7 h-7" />
-            </button>
+              <button
+                className="lg:hidden p-2 text-white"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              >
+                <Menu className="w-7 h-7" />
+              </button>
+            </div>
           </div>
-        </div>
 
-        {/* Mobile Sidebar */}
-        <div
-          className={cn(
-            "fixed inset-0 bg-background/95 backdrop-blur-xl z-[2000] lg:hidden transition-all duration-500 ease-in-out flex flex-col",
-            mobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-          )}
-        >
-          <div className="flex items-center justify-between p-6 border-b border-white/5">
-             <Link href="/" onClick={() => setMobileMenuOpen(false)}>
-               <Logo className="scale-90" />
-             </Link>
-             <button onClick={() => setMobileMenuOpen(false)} className="text-[40px] font-light text-white">
-               ×
-             </button>
-          </div>
-          <div className="flex-1 overflow-y-auto p-8">
-            <ul className="space-y-6 font-display font-bold text-[18px] uppercase tracking-wider">
-              {menuItems.map((item, idx) => (
-                <li key={idx} className="border-b border-white/5 pb-4">
-                  <div className="flex items-center justify-between">
-                    <Link href={item.href} onClick={() => setMobileMenuOpen(false)} className="text-white">{item.title}</Link>
-                    {(item.isMega || item.isFlyout) && (
-                      <button
-                        onClick={() => setActiveSubMenu(activeSubMenu === item.title ? null : item.title)}
-                        className="p-2 text-primary"
-                      >
-                        <ChevronDown className={cn("w-6 h-6 transition-transform", activeSubMenu === item.title ? "rotate-180" : "")} />
-                      </button>
-                    )}
-                  </div>
-                  {(item.isMega || item.isFlyout) && activeSubMenu === item.title && (
-                    <div className="mt-4 pl-4 space-y-4">
-                      {item.isMega ? (
-                        item.columns?.map((col: Column, cIdx: number) => (
-                          <div key={cIdx} className="space-y-3">
-                             {col.title && <h5 className="text-[11px] font-bold text-primary/60 tracking-widest">{col.title}</h5>}
-                             {col.items.map((sub: SubMenuItem, sIdx: number) => (
-                               <Link key={sIdx} href={sub.href} onClick={() => setMobileMenuOpen(false)} className="block text-[15px] text-slate-400">{sub.name}</Link>
-                             ))}
-                          </div>
-                        ))
-                      ) : (
-                        item.items?.map((sub: SubMenuItem, sIdx: number) => (
-                          <Link key={sIdx} href={sub.href} onClick={() => setMobileMenuOpen(false)} className="block text-[15px] text-slate-400">{sub.name}</Link>
-                        ))
+          {/* Mobile Sidebar */}
+          <div
+            className={cn(
+              "fixed inset-0 bg-background/95 backdrop-blur-xl z-[2000] lg:hidden transition-all duration-500 ease-in-out flex flex-col",
+              mobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+            )}
+          >
+            <div className="flex items-center justify-between p-6 border-b border-white/5">
+               <Link href="/" onClick={() => setMobileMenuOpen(false)}>
+                 <Logo className="scale-90" />
+               </Link>
+               <button onClick={() => setMobileMenuOpen(false)} className="text-[40px] font-light text-white">
+                 ×
+               </button>
+            </div>
+            <div className="flex-1 overflow-y-auto p-8">
+              <ul className="space-y-6 font-display font-bold text-[18px] uppercase tracking-wider mb-8">
+                {menuItems.map((item, idx) => (
+                  <li key={idx} className="border-b border-white/5 pb-4">
+                    <div className="flex items-center justify-between">
+                      <Link href={item.href} onClick={() => setMobileMenuOpen(false)} className="text-white">{item.title}</Link>
+                      {(item.isMega || item.isFlyout) && (
+                        <button
+                          onClick={() => setActiveSubMenu(activeSubMenu === item.title ? null : item.title)}
+                          className="p-2 text-primary"
+                        >
+                          <ChevronDown className={cn("w-6 h-6 transition-transform", activeSubMenu === item.title ? "rotate-180" : "")} />
+                        </button>
                       )}
                     </div>
-                  )}
-                </li>
-              ))}
-            </ul>
+                    {(item.isMega || item.isFlyout) && activeSubMenu === item.title && (
+                      <div className="mt-4 pl-4 space-y-4">
+                        {item.isMega ? (
+                          item.columns?.map((col: Column, cIdx: number) => (
+                            <div key={cIdx} className="space-y-3">
+                               {col.title && <h5 className="text-[11px] font-bold text-primary/60 tracking-widest">{col.title}</h5>}
+                               {col.items.map((sub: SubMenuItem, sIdx: number) => (
+                                 <Link key={sIdx} href={sub.href} onClick={() => setMobileMenuOpen(false)} className="block text-[15px] text-slate-400">{sub.name}</Link>
+                               ))}
+                            </div>
+                          ))
+                        ) : (
+                          item.items?.map((sub: SubMenuItem, sIdx: number) => (
+                            <Link key={sIdx} href={sub.href} onClick={() => setMobileMenuOpen(false)} className="block text-[15px] text-slate-400">{sub.name}</Link>
+                          ))
+                        )}
+                      </div>
+                    )}
+                  </li>
+                ))}
+              </ul>
+              <Link
+                href="/contact-us"
+                onClick={() => setMobileMenuOpen(false)}
+                className="block text-center grdnt-green text-white py-4 rounded-xl font-bold uppercase tracking-widest shadow-lg active:scale-95 transition-transform"
+              >
+                Contact Us
+              </Link>
+            </div>
           </div>
-        </div>
       </nav>
     </header>
   );
