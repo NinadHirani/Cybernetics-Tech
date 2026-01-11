@@ -1,8 +1,29 @@
+"use client";
+
 import Navbar from "@/components/sections/navbar";
 import Footer from "@/components/sections/footer";
-import { Mail, MapPin, Clock } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
+import { useState } from "react";
 
 export default function ContactUsPage() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: ""
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const mailtoLink = `mailto:cyberneticstech001@gmail.com?subject=${encodeURIComponent(formData.subject || "Contact Inquiry")}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`)}`;
+    window.location.href = mailtoLink;
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
   return (
     <main className="min-h-screen bg-background pt-[70px]">
       <Navbar />
@@ -48,16 +69,20 @@ export default function ContactUsPage() {
               </div>
             </div>
 
-            {/* Contact Form Placeholder */}
+            {/* Contact Form */}
             <div className="lg:col-span-2">
               <div className="p-10 rounded-xl bg-card border border-white/5 shadow-xl h-full">
-                <form className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <label className="text-sm font-medium text-slate-300">Full Name</label>
                       <input 
                         type="text" 
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
                         placeholder="John Doe" 
+                        required
                         className="w-full bg-slate-900 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
                       />
                     </div>
@@ -65,7 +90,11 @@ export default function ContactUsPage() {
                       <label className="text-sm font-medium text-slate-300">Email Address</label>
                       <input 
                         type="email" 
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
                         placeholder="john@example.com" 
+                        required
                         className="w-full bg-slate-900 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
                       />
                     </div>
@@ -74,15 +103,23 @@ export default function ContactUsPage() {
                     <label className="text-sm font-medium text-slate-300">Subject</label>
                     <input 
                       type="text" 
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleChange}
                       placeholder="How can we help?" 
+                      required
                       className="w-full bg-slate-900 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
                     />
                   </div>
                   <div className="space-y-2">
                     <label className="text-sm font-medium text-slate-300">Message</label>
                     <textarea 
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
                       placeholder="Your message..." 
                       rows={5}
+                      required
                       className="w-full bg-slate-900 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors resize-none"
                     ></textarea>
                   </div>
