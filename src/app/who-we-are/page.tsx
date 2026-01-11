@@ -37,9 +37,6 @@ export default function WhoWeArePage() {
                 <p className="text-slate-400 text-[16px] leading-[1.6] mb-6 font-body">
                   As a growing team, we value clarity, accountability, and long-term thinking. We work closely with our clients, communicate openly, and focus on outcomes rather than buzzwords. Our goal is to become a dependable technology partner for businesses that want solutions they can trust.
                 </p>
-                <p className="text-slate-400 text-[24px] leading-[1.6] font-body">
-                  ⸻
-                </p>
                 </div>
             </div>
           </div>
