@@ -12,8 +12,8 @@ export default function Home() {
       <ServicesSection />
       <Footer />
       
-      {/* Robot Cat fixed in the bottom right */}
-      <div className="fixed bottom-8 right-8 z-50">
+      {/* Robot Cat centered at the top */}
+      <div className="fixed top-4 left-1/2 -translate-x-1/2 z-[100]">
         <RobotCat />
       </div>
     </main>

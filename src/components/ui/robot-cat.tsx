@@ -17,7 +17,6 @@ export function RobotCat() {
         // Normalize mouse position relative to center of the cat (-1 to 1)
         const dx = event.clientX - centerX;
         const dy = event.clientY - centerY;
-        const distance = Math.sqrt(dx * dx + dy * dy);
         
         // Limit movement range
         const maxDist = 300;
@@ -70,64 +69,79 @@ export function RobotCat() {
         />
         
         {/* Head/Body */}
-        <rect x="20" y="30" width="60" height="55" rx="20" fill="#f1f5f9" stroke="#94a3b8" strokeWidth="2" />
+        <rect x="20" y="30" width="60" height="55" rx="22" fill="#f8fafc" stroke="#94a3b8" strokeWidth="2" />
         
         {/* Face Screen */}
-        <rect x="30" y="42" width="40" height="28" rx="8" fill="#1e293b" />
+        <rect x="28" y="42" width="44" height="30" rx="10" fill="#1e293b" />
         
         {/* Eyes (Tracking) */}
         <g>
           {/* Left Eye */}
-          <circle cx="42" cy="56" r="6" fill="#334155" />
+          <circle cx="42" cy="54" r="7" fill="#334155" />
           <motion.circle 
             style={{ x: eyeX, y: eyeY }} 
             cx="42" 
-            cy="56" 
-            r="3" 
-            fill="#60a5fa" 
-            className="shadow-[0_0_8px_rgba(96,165,250,0.8)]"
+            cy="54" 
+            r="4" 
+            fill="#ef4444" 
+            className="shadow-[0_0_10px_rgba(239,68,68,0.9)]"
           />
           
           {/* Right Eye */}
-          <circle cx="58" cy="56" r="6" fill="#334155" />
+          <circle cx="58" cy="54" r="7" fill="#334155" />
           <motion.circle 
             style={{ x: eyeX, y: eyeY }} 
             cx="58" 
-            cy="56" 
-            r="3" 
-            fill="#60a5fa" 
+            cy="54" 
+            r="4" 
+            fill="#ef4444" 
+            className="shadow-[0_0_10px_rgba(239,68,68,0.9)]"
           />
         </g>
+
+        {/* Mouth */}
+        <path d="M44 65 Q50 69 56 65" stroke="#ef4444" strokeWidth="1.5" strokeLinecap="round" fill="none" />
         
         {/* Cheeks */}
-        <circle cx="36" cy="64" r="2" fill="#fecaca" opacity="0.6" />
-        <circle cx="64" cy="64" r="2" fill="#fecaca" opacity="0.6" />
+        <circle cx="35" cy="62" r="3" fill="#fecaca" opacity="0.8" />
+        <circle cx="65" cy="62" r="3" fill="#fecaca" opacity="0.8" />
         
+        {/* Heart Decoration */}
+        <motion.path
+          d="M50 82 C48 80 44 80 44 83 C44 85 46 87 50 89 C54 87 56 85 56 83 C56 80 52 80 50 82"
+          fill="#ef4444"
+          animate={{ scale: [1, 1.1, 1] }}
+          transition={{ duration: 1.5, repeat: Infinity }}
+        />
+
         {/* Antenna */}
         <line x1="50" y1="15" x2="50" y2="30" stroke="#94a3b8" strokeWidth="2" />
         <motion.circle 
           cx="50" 
           cy="15" 
           r="4" 
-          fill="#f87171" 
-          animate={{ scale: [1, 1.2, 1] }}
-          transition={{ duration: 2, repeat: Infinity }}
+          fill="#ef4444" 
+          animate={{ 
+            scale: [1, 1.3, 1],
+            fill: ["#ef4444", "#f87171", "#ef4444"]
+          }}
+          transition={{ duration: 1.5, repeat: Infinity }}
+          className="shadow-[0_0_8px_rgba(239,68,68,0.8)]"
         />
         
         {/* Whiskers */}
-        <line x1="22" y1="58" x2="12" y2="56" stroke="#94a3b8" strokeWidth="1" strokeLinecap="round" />
-        <line x1="22" y1="62" x2="12" y2="64" stroke="#94a3b8" strokeWidth="1" strokeLinecap="round" />
-        <line x1="78" y1="58" x2="88" y2="56" stroke="#94a3b8" strokeWidth="1" strokeLinecap="round" />
-        <line x1="78" y1="62" x2="88" y2="64" stroke="#94a3b8" strokeWidth="1" strokeLinecap="round" />
+        <line x1="22" y1="58" x2="10" y2="54" stroke="#94a3b8" strokeWidth="1" strokeLinecap="round" />
+        <line x1="22" y1="62" x2="10" y2="66" stroke="#94a3b8" strokeWidth="1" strokeLinecap="round" />
+        <line x1="78" y1="58" x2="90" y2="54" stroke="#94a3b8" strokeWidth="1" strokeLinecap="round" />
+        <line x1="78" y1="62" x2="90" y2="66" stroke="#94a3b8" strokeWidth="1" strokeLinecap="round" />
       </svg>
       
-      {/* Hover tooltip or just decoration */}
       <motion.div 
         initial={{ opacity: 0, scale: 0.8 }}
         whileHover={{ opacity: 1, scale: 1 }}
-        className="absolute -top-10 bg-white px-3 py-1 rounded-full text-xs font-medium text-slate-600 border border-slate-100 shadow-sm"
+        className="absolute -top-10 bg-white px-3 py-1 rounded-full text-xs font-medium text-red-500 border border-red-100 shadow-sm"
       >
-        Meow! 🤖
+        Luv u! ❤️
       </motion.div>
     </div>
   );
