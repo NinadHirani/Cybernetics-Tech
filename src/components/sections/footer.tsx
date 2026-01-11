@@ -5,8 +5,8 @@ import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Twitter, Youtube } 
 import { Logo } from '@/components/ui/logo';
 
 const Footer = () => {
-  return (
-    <footer className="bg-[#020617] text-[#848c99] pt-[80px] pb-0 font-body border-t border-white/5">
+    return (
+      <footer id="contact" className="bg-[#020617] text-[#848c99] pt-[80px] pb-0 font-body border-t border-white/5">
       <div className="container mx-auto px-[15px] max-w-[1170px]">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[30px] mb-[50px]">
@@ -38,53 +38,53 @@ const Footer = () => {
             <h3 className="text-white font-display text-[18px] font-semibold mb-[30px] relative pb-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-[40px] after:h-[2px] after:bg-primary uppercase tracking-wider">
               Quick Links
             </h3>
-            <ul className="space-y-[12px]">
-              <li>
-                <Link href="/" className="hover:text-primary transition-colors duration-300">Home</Link>
-              </li>
-              <li>
-                <Link href="/who-we-are/" className="hover:text-primary transition-colors duration-300">Who We Are</Link>
-              </li>
-              <li>
-                <Link href="/our-services/" className="hover:text-primary transition-colors duration-300">Our Services</Link>
-              </li>
-              <li>
-                <Link href="/our-products/" className="hover:text-primary transition-colors duration-300">Our Products</Link>
-              </li>
-              <li>
-                <Link href="/our-work/" className="hover:text-primary transition-colors duration-300">Our Work</Link>
-              </li>
-              <li>
-                <Link href="/contact-us/" className="hover:text-primary transition-colors duration-300">Contact Us</Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Services Column */}
-          <div className="footer-col">
-            <h3 className="text-white font-display text-[20px] font-semibold mb-[30px] relative pb-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-[50px] after:h-[2px] after:bg-primary">
-              Services
-            </h3>
-            <ul className="space-y-[12px]">
-              <li>
-                <Link href="/services/web-development-company/" className="hover:text-primary transition-colors duration-300">Website Development</Link>
-              </li>
-              <li>
-                <Link href="/services/software-development-company/" className="hover:text-primary transition-colors duration-300">Software Development</Link>
-              </li>
-              <li>
-                <Link href="/services/mobile-app-development/" className="hover:text-primary transition-colors duration-300">Mobile App Development</Link>
-              </li>
-              <li>
-                <Link href="/services/graphic-design-services/" className="hover:text-primary transition-colors duration-300">Graphic Design</Link>
-              </li>
-              <li>
-                <Link href="/services/best-seo-services-in-india/" className="hover:text-primary transition-colors duration-300">SEO Services</Link>
-              </li>
-              <li>
-                <Link href="/hire-developers/" className="hover:text-primary transition-colors duration-300">Hire Developers</Link>
-              </li>
-            </ul>
+              <ul className="space-y-[12px]">
+                <li>
+                  <Link href="/#home" className="hover:text-primary transition-colors duration-300">Home</Link>
+                </li>
+                <li>
+                  <Link href="/#home" className="hover:text-primary transition-colors duration-300">Who We Are</Link>
+                </li>
+                <li>
+                  <Link href="/#services" className="hover:text-primary transition-colors duration-300">Our Services</Link>
+                </li>
+                <li>
+                  <Link href="/#services" className="hover:text-primary transition-colors duration-300">Our Products</Link>
+                </li>
+                <li>
+                  <Link href="/#our-work" className="hover:text-primary transition-colors duration-300">Our Work</Link>
+                </li>
+                <li>
+                  <Link href="/#contact" className="hover:text-primary transition-colors duration-300">Contact Us</Link>
+                </li>
+              </ul>
+            </div>
+  
+            {/* Services Column */}
+            <div className="footer-col">
+              <h3 className="text-white font-display text-[20px] font-semibold mb-[30px] relative pb-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-[50px] after:h-[2px] after:bg-primary">
+                Services
+              </h3>
+              <ul className="space-y-[12px]">
+                <li>
+                  <Link href="/#services" className="hover:text-primary transition-colors duration-300">Website Development</Link>
+                </li>
+                <li>
+                  <Link href="/#services" className="hover:text-primary transition-colors duration-300">Software Development</Link>
+                </li>
+                <li>
+                  <Link href="/#services" className="hover:text-primary transition-colors duration-300">Mobile App Development</Link>
+                </li>
+                <li>
+                  <Link href="/#services" className="hover:text-primary transition-colors duration-300">Graphic Design</Link>
+                </li>
+                <li>
+                  <Link href="/#services" className="hover:text-primary transition-colors duration-300">SEO Services</Link>
+                </li>
+                <li>
+                  <Link href="/#contact" className="hover:text-primary transition-colors duration-300">Hire Developers</Link>
+                </li>
+              </ul>
           </div>
 
           {/* Contact Details Column */}

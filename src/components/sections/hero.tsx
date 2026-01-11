@@ -107,20 +107,20 @@ const Hero = () => {
               Reliable & Affordable IT Solutions For Your Business Growth. We provide end-to-end technology solutions tailored to your needs.
             </h2>
             
-            <div className="flex flex-wrap gap-4">
-              <Link 
-                href="/our-services/" 
-                className="inline-block px-[30px] py-[14px] rounded-[8px] text-[14px] font-bold font-display text-white grdnt-green hvr-wobble-horizontal shadow-lg shadow-primary/20 transition-all duration-300"
-              >
-                OUR SERVICES
-              </Link>
-              <Link 
-                href="/who-we-are/" 
-                className="inline-block px-[30px] py-[14px] rounded-[8px] text-[14px] font-bold font-display text-white bg-white/5 border border-white/10 hover:bg-white/10 shadow-sm transition-all duration-300"
-              >
-                WHO WE ARE
-              </Link>
-            </div>
+              <div className="flex flex-wrap gap-4">
+                <Link 
+                  href="/#services" 
+                  className="inline-block px-[30px] py-[14px] rounded-[8px] text-[14px] font-bold font-display text-white grdnt-green hvr-wobble-horizontal shadow-lg shadow-primary/20 transition-all duration-300"
+                >
+                  OUR SERVICES
+                </Link>
+                <Link 
+                  href="/#home" 
+                  className="inline-block px-[30px] py-[14px] rounded-[8px] text-[14px] font-bold font-display text-white bg-white/5 border border-white/10 hover:bg-white/10 shadow-sm transition-all duration-300"
+                >
+                  WHO WE ARE
+                </Link>
+              </div>
 
             <div className="mt-12 flex items-center space-x-6 opacity-80">
               <div className="text-center border-r border-white/10 pr-6">

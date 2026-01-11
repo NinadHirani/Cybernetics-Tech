@@ -34,105 +34,105 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const menuItems = [
-    { title: "Home", href: "/" },
-    { title: "Who We Are", href: "/who-we-are/" },
-    {
-      title: "Our Services",
-      href: "/our-services/",
-      isMega: true,
-      columns: [
-        {
-          title: "Our Core Services",
-          items: [
-            { name: "Product Design And Development Company", href: "/services/product-development-and-development/" },
-            { name: "Website Development", href: "/services/web-development-company/" },
-            { name: "Software Development", href: "/services/software-development-company/" },
-            { name: "Mobile App Development", href: "/services/mobile-app-development/" },
-            { name: "SEO Service", href: "/services/best-seo-services-in-india/" },
-          ],
-        },
-        {
-          title: "Graphic Design Services",
-          items: [
-            { name: "Branding", href: "/branding/" },
-            { name: "Brochure Design", href: "/brochure-design/" },
-            { name: "Business Cards", href: "/business-cards/" },
-            { name: "Enevelope", href: "/enevelope/" },
-            { name: "Letter Pad Design", href: "/letterheads/" },
-            { name: "Logo Design", href: "/logo-design/" },
-            { name: "Packaging Design", href: "/package-design-company/" },
-            { name: "Print Design", href: "/print-design/" },
-            { name: "UI/UX Design", href: "/ui-ux-design/" },
-            { name: "Stationary Design", href: "/stationary-design/" },
-          ],
-        },
-      ] as Column[],
-    },
-    {
-      title: "Our Products",
-      href: "/our-products/",
-      isMega: true,
-      columns: [
-        {
-          items: [
-            { name: "Online Exam Software", href: "/products/online-exam-software/" },
-            { name: "Lead Management Software", href: "/products/lead-management-software/" },
-            { name: "Fees Management Software", href: "/products/fees-management-software/" },
-            { name: "Bulk Cheque Printing Software", href: "/products/bulk-cheque-printing-software/" },
-            { name: "Business ERP Software", href: "/products/erp-software/" },
-            { name: "Sales CRM Software", href: "/products/sales-crm/" },
-            { name: "Event/Expo Registration Management", href: "/products/event-registration-management-software/" },
-          ],
-        },
-        {
-          items: [
-            { name: "Jewellery Tag Printing Software", href: "/products/jewellery-tag-printing-software/" },
-            { name: "Gross Account Software", href: "/products/gross-account/" },
-            { name: "Association Management Software", href: "/products/association-management-software/" },
-            { name: "Library Management Software", href: "/products/library-management-software/" },
-            { name: "Vehicle Management System", href: "/products/vehicle-management-system/" },
-            { name: "Export Management Software", href: "/products/export-management-software/" },
-          ],
-        },
-      ] as Column[],
-    },
-    {
-      title: "Ready Solutions",
-      href: "/ready-solutions/",
-      isMega: true,
-      columns: [
-        {
-          items: [
-            { name: "E-commerce Automobile Portal", href: "/ready-solution/e-commerce-automobile-portal/" },
-            { name: "Online Vegetable Store", href: "/ready-solution/online-vegetable-store/" },
-            { name: "Matrimonial Portal", href: "/ready-solution/metrimonial-portal/" },
-          ],
-        },
-        {
-          items: [
-            { name: "Hotel & Restaurant Portal", href: "/ready-solution/hotel-restaurant-with-stock-management-portal/" },
-            { name: "Insurance Management Portal", href: "/ready-solution/insurance-management-portal/" },
-            { name: "School & Hostel Portal", href: "/ready-solution/school-hostel-management-portal/" },
-          ],
-        },
-      ] as Column[],
-    },
-    { title: "Our Work", href: "/our-work/" },
-    {
-      title: "Hire Developers",
-      href: "/hire-developers/",
-      isFlyout: true,
-      items: [
-        { name: "Hire PHP Developers", href: "/hiredevelopers/hire-php-developers/" },
-        { name: "Hire Codeigniter Developers", href: "/hiredevelopers/hire-codeigniter-developers/" },
-        { name: "Hire WordPress Developers", href: "/hiredevelopers/hire-wordpress-developers/" },
-        { name: "Hire Web Designer", href: "/hiredevelopers/hire-web-designer/" },
-        { name: "Hire Android Developers", href: "/hiredevelopers/hire-android-developers/" },
-        { name: "Hire iOS Developers", href: "/hiredevelopers/hire-ios-developers/" },
-      ],
-    },
-  ];
+    const menuItems = [
+      { title: "Home", href: "/#home" },
+      { title: "Who We Are", href: "/#who-we-are" },
+      {
+        title: "Our Services",
+        href: "/#services",
+        isMega: true,
+        columns: [
+          {
+            title: "Our Core Services",
+            items: [
+              { name: "Product Design And Development", href: "/#services" },
+              { name: "Website Development", href: "/#services" },
+              { name: "Software Development", href: "/#services" },
+              { name: "Mobile App Development", href: "/#services" },
+              { name: "SEO Service", href: "/#services" },
+            ],
+          },
+          {
+            title: "Graphic Design Services",
+            items: [
+              { name: "Branding", href: "/#services" },
+              { name: "Brochure Design", href: "/#services" },
+              { name: "Business Cards", href: "/#services" },
+              { name: "Enevelope", href: "/#services" },
+              { name: "Letter Pad Design", href: "/#services" },
+              { name: "Logo Design", href: "/#services" },
+              { name: "Packaging Design", href: "/#services" },
+              { name: "Print Design", href: "/#services" },
+              { name: "UI/UX Design", href: "/#services" },
+              { name: "Stationary Design", href: "/#services" },
+            ],
+          },
+        ] as Column[],
+      },
+      {
+        title: "Our Products",
+        href: "/#services",
+        isMega: true,
+        columns: [
+          {
+            items: [
+              { name: "Online Exam Software", href: "/#services" },
+              { name: "Lead Management Software", href: "/#services" },
+              { name: "Fees Management Software", href: "/#services" },
+              { name: "Bulk Cheque Printing Software", href: "/#services" },
+              { name: "Business ERP Software", href: "/#services" },
+              { name: "Sales CRM Software", href: "/#services" },
+              { name: "Event/Expo Registration", href: "/#services" },
+            ],
+          },
+          {
+            items: [
+              { name: "Jewellery Tag Printing", href: "/#services" },
+              { name: "Gross Account Software", href: "/#services" },
+              { name: "Association Management", href: "/#services" },
+              { name: "Library Management", href: "/#services" },
+              { name: "Vehicle Management", href: "/#services" },
+              { name: "Export Management", href: "/#services" },
+            ],
+          },
+        ] as Column[],
+      },
+      {
+        title: "Ready Solutions",
+        href: "/#services",
+        isMega: true,
+        columns: [
+          {
+            items: [
+              { name: "E-commerce Automobile", href: "/#services" },
+              { name: "Online Vegetable Store", href: "/#services" },
+              { name: "Matrimonial Portal", href: "/#services" },
+            ],
+          },
+          {
+            items: [
+              { name: "Hotel & Restaurant", href: "/#services" },
+              { name: "Insurance Management", href: "/#services" },
+              { name: "School & Hostel Portal", href: "/#services" },
+            ],
+          },
+        ] as Column[],
+      },
+      { title: "Our Work", href: "/#our-work" },
+      {
+        title: "Hire Developers",
+        href: "/#contact",
+        isFlyout: true,
+        items: [
+          { name: "Hire PHP Developers", href: "/#contact" },
+          { name: "Hire Codeigniter Developers", href: "/#contact" },
+          { name: "Hire WordPress Developers", href: "/#contact" },
+          { name: "Hire Web Designer", href: "/#contact" },
+          { name: "Hire Android Developers", href: "/#contact" },
+          { name: "Hire iOS Developers", href: "/#contact" },
+        ],
+      },
+    ];
 
   return (
     <header className="relative">
