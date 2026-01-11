@@ -1,17 +1,49 @@
 "use client";
 
-import React from 'react';
+import React, { useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { motion, useScroll, useTransform, useSpring, useMotionValue } from 'framer-motion';
 
 const Hero = () => {
+  const containerRef = useRef<HTMLElement>(null);
+  const { scrollY } = useScroll();
+  
+  const y1 = useTransform(scrollY, [0, 500], [0, 200]);
+  const y2 = useTransform(scrollY, [0, 500], [0, -150]);
+  const rotate = useTransform(scrollY, [0, 1000], [0, 45]);
+
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  const springConfig = { damping: 25, stiffness: 150 };
+  const mouseXSpring = useSpring(mouseX, springConfig);
+  const mouseYSpring = useSpring(mouseY, springConfig);
+
+  const textRotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["5deg", "-5deg"]);
+  const textRotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-5deg", "5deg"]);
+  const textTranslateX = useTransform(mouseXSpring, [-0.5, 0.5], ["-10px", "10px"]);
+  const textTranslateY = useTransform(mouseYSpring, [-0.5, 0.5], ["-10px", "10px"]);
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    const { clientX, clientY } = e;
+    const { innerWidth, innerHeight } = window;
+    mouseX.set(clientX / innerWidth - 0.5);
+    mouseY.set(clientY / innerHeight - 0.5);
+  };
+
   return (
     <section 
       id="home" 
+      ref={containerRef}
+      onMouseMove={handleMouseMove}
       className="relative min-h-screen w-full flex items-center overflow-hidden bg-background hero style-wave pt-[70px]"
     >
       {/* Background SVG Shapes */}
-      <div className="absolute top-0 right-0 z-0 pointer-events-none hidden md:block">
+      <motion.div 
+        style={{ y: y1, rotate }}
+        className="absolute top-0 right-0 z-0 pointer-events-none hidden md:block"
+      >
         <svg 
           width="1000" 
           height="1000" 
@@ -24,23 +56,26 @@ const Hero = () => {
               <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.3" />
             </linearGradient>
           </defs>
-          <path 
+          <motion.path 
             fill="url(#hero-grad-1)" 
             d="M500,100 C700,50 950,200 900,500 C850,800 600,950 400,900 C150,850 50,650 100,400 C150,150 300,150 500,100 Z"
-          >
-            <animateTransform 
-              attributeName="transform" 
-              type="rotate" 
-              from="0 500 500" 
-              to="360 500 500" 
-              dur="60s" 
-              repeatCount="indefinite" 
-            />
-          </path>
+            animate={{
+              scale: [1, 1.1, 1],
+              rotate: [0, 5, 0]
+            }}
+            transition={{
+              duration: 10,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
         </svg>
-      </div>
+      </motion.div>
 
-      <div className="absolute bottom-0 left-0 z-0 pointer-events-none opacity-30">
+      <motion.div 
+        style={{ y: y2 }}
+        className="absolute bottom-0 left-0 z-0 pointer-events-none opacity-30"
+      >
         <svg 
           width="600" 
           height="600" 
@@ -53,27 +88,32 @@ const Hero = () => {
               <stop offset="100%" stopColor="#1d4ed8" stopOpacity="0.2" />
             </linearGradient>
           </defs>
-          <path 
+          <motion.path 
             fill="url(#hero-grad-2)" 
             d="M300,50 C450,50 550,150 550,300 C550,450 450,550 300,550 C150,550 50,450 50,300 C50,150 150,50 300,50 Z"
-          >
-            <animate 
-              attributeName="d" 
-              dur="20s" 
-              repeatCount="indefinite"
-              values="
-                M300,50 C450,50 550,150 550,300 C550,450 450,550 300,550 C150,550 50,450 50,300 C50,150 150,50 300,50 Z;
-                M300,80 C400,60 520,180 520,320 C520,480 380,520 300,520 C220,520 80,420 80,280 C80,140 200,100 300,80 Z;
-                M300,50 C450,50 550,150 550,300 C550,450 450,550 300,550 C150,550 50,450 50,300 C50,150 150,50 300,50 Z
-              "
-            />
-          </path>
+            animate={{
+              d: [
+                "M300,50 C450,50 550,150 550,300 C550,450 450,550 300,550 C150,550 50,450 50,300 C50,150 150,50 300,50 Z",
+                "M300,80 C400,60 520,180 520,320 C520,480 380,520 300,520 C220,520 80,420 80,280 C80,140 200,100 300,80 Z",
+                "M300,50 C450,50 550,150 550,300 C550,450 450,550 300,550 C150,550 50,450 50,300 C50,150 150,50 300,50 Z"
+              ]
+            }}
+            transition={{
+              duration: 15,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
         </svg>
-      </div>
+      </motion.div>
 
       {/* Floating Clouds Asset */}
       <div className="absolute inset-0 z-0 pointer-events-none opacity-20 overflow-hidden">
-        <div className="absolute w-full h-full animate-[cloud-drift_40s_linear_infinite]">
+        <motion.div 
+          animate={{ x: ["-100%", "100%"] }}
+          transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+          className="absolute w-full h-full"
+        >
           <Image 
             src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c7eda8bf-0b51-4df9-bd1e-d810430a3d49-rkinfotechindia-com/assets/images/clouds-1-27.png" 
             alt="cloud decoration" 
@@ -81,6 +121,61 @@ const Hero = () => {
             height={400}
             className="absolute top-1/4 left-0 invert opacity-50"
           />
+        </motion.div>
+      </div>
+
+      <div className="container relative z-10 mx-auto px-[15px]">
+        <div className="flex flex-wrap items-center">
+          <motion.div 
+            style={{ 
+              rotateX: textRotateX, 
+              rotateY: textRotateY,
+              x: textTranslateX,
+              y: textTranslateY,
+              transformStyle: "preserve-3d"
+            }}
+            className="w-full lg:w-7/12 text-left"
+          >
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              style={{ transform: "translateZ(50px)" }}
+              className="text-[32px] md:text-[48px] font-bold font-display text-white mb-[20px] leading-[1.2]"
+            >
+              Best <span className="text-primary">Cybernetics Technology</span> Company <br className="hidden md:block" /> in Rajkot, Gujarat
+            </motion.h1>
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              style={{ transform: "translateZ(30px)" }}
+              className="text-[20px] md:text-[24px] font-medium font-body text-slate-300 mb-[35px] leading-[1.6]"
+            >
+              Reliable & Affordable IT Solutions For Your Business Growth. We provide end-to-end technology solutions tailored to your needs.
+            </motion.h2>
+            
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              style={{ transform: "translateZ(20px)" }}
+              className="flex flex-wrap gap-4"
+            >
+              <Link 
+                href="/services" 
+                className="inline-block px-[30px] py-[14px] rounded-[8px] text-[14px] font-bold font-display text-white grdnt-green hvr-wobble-horizontal shadow-lg shadow-primary/20 transition-all duration-300 hover:scale-105 active:scale-95"
+              >
+                OUR SERVICES
+              </Link>
+              <Link 
+                href="/who-we-are" 
+                className="inline-block px-[30px] py-[14px] rounded-[8px] text-[14px] font-bold font-display text-white bg-white/5 border border-white/10 hover:bg-white/10 shadow-sm transition-all duration-300 hover:scale-105 active:scale-95"
+              >
+                WHO WE ARE
+              </Link>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
 
@@ -97,39 +192,7 @@ const Hero = () => {
         </svg>
       </div>
 
-      <div className="container relative z-10 mx-auto px-[15px]">
-        <div className="flex flex-wrap items-center">
-          <div className="w-full lg:w-7/12 text-left">
-            <h1 className="text-[32px] md:text-[48px] font-bold font-display text-white mb-[20px] leading-[1.2]">
-              Best <span className="text-primary">Cybernetics Technology</span> Company <br className="hidden md:block" /> in Rajkot, Gujarat
-            </h1>
-            <h2 className="text-[20px] md:text-[24px] font-medium font-body text-slate-300 mb-[35px] leading-[1.6]">
-              Reliable & Affordable IT Solutions For Your Business Growth. We provide end-to-end technology solutions tailored to your needs.
-            </h2>
-            
-                <div className="flex flex-wrap gap-4">
-                  <Link 
-                    href="/services" 
-                    className="inline-block px-[30px] py-[14px] rounded-[8px] text-[14px] font-bold font-display text-white grdnt-green hvr-wobble-horizontal shadow-lg shadow-primary/20 transition-all duration-300"
-                  >
-                    OUR SERVICES
-                  </Link>
-                  <Link 
-                    href="/who-we-are" 
-                    className="inline-block px-[30px] py-[14px] rounded-[8px] text-[14px] font-bold font-display text-white bg-white/5 border border-white/10 hover:bg-white/10 shadow-sm transition-all duration-300"
-                  >
-                    WHO WE ARE
-                  </Link>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <style dangerouslySetInnerHTML={{ __html: `
-        @keyframes cloud-drift {
-          0% { transform: translateX(-100%); }
-          100% { transform: translateX(100%); }
-        }
         .hero.style-wave .container {
           max-width: 1170px;
         }
@@ -153,3 +216,4 @@ const Hero = () => {
 };
 
 export default Hero;
+

@@ -1,8 +1,9 @@
 "use client";
 
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 
 const ServiceCard = ({ 
 
@@ -18,58 +19,99 @@ const ServiceCard = ({
   bgImage: string; 
   link: string;
 }) => {
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const mouseXSpring = useSpring(x);
+  const mouseYSpring = useSpring(y);
+
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["17.5deg", "-17.5deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-17.5deg", "17.5deg"]);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+
+    const width = rect.width;
+    const height = rect.height;
+
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+
+    const xPct = mouseX / width - 0.5;
+    const yPct = mouseY / height - 0.5;
+
+    x.set(xPct);
+    y.set(yPct);
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+  };
+
   return (
-    <div className="group relative overflow-hidden rounded-lg bg-card border border-white/5 shadow-2xl transition-all duration-300 hover:-translate-y-2">
-      {/* Background Image Wrapper */}
-      <div className="relative h-[250px] w-full overflow-hidden">
-        <Image 
-          src={bgImage} 
-          alt={title} 
-          fill 
-          className="object-cover transition-transform duration-500 group-hover:scale-110"
-        />
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black/60 transition-opacity duration-300 group-hover:bg-black/40" />
-      </div>
-
-      {/* Content Area */}
-      <div className="relative z-10 -mt-12 px-6 pb-8 text-center">
-        {/* Icon Circle */}
-        <div className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-slate-900 border border-white/10 shadow-xl transition-transform duration-300 group-hover:scale-110">
+    <motion.div 
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{
+        rotateY,
+        rotateX,
+        transformStyle: "preserve-3d",
+      }}
+      className="group relative overflow-hidden rounded-lg bg-card border border-white/5 shadow-2xl transition-all duration-300"
+    >
+      <div style={{ transform: "translateZ(75px)", transformStyle: "preserve-3d" }}>
+        {/* Background Image Wrapper */}
+        <div className="relative h-[250px] w-full overflow-hidden">
           <Image 
-            src={icon} 
-            alt={`${title} icon`} 
-            width={45} 
-            height={45} 
-            className="h-auto w-11 object-contain invert"
+            src={bgImage} 
+            alt={title} 
+            fill 
+            className="object-cover transition-transform duration-500 group-hover:scale-110"
           />
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-black/60 transition-opacity duration-300 group-hover:bg-black/40" />
         </div>
-
-        {/* Text Styling */}
-        <h3 className="mb-3 font-display text-[22px] font-semibold leading-[1.4] text-white transition-colors duration-300 group-hover:text-primary">
-          {title}
-        </h3>
-        <p className="mb-6 font-body text-base leading-[1.6] text-slate-400">
-          {description}
-        </p>
-
-        {/* Read More Link */}
-        <Link 
-          href={link} 
-          className="inline-flex items-center font-display text-sm font-bold uppercase tracking-wider text-primary hover:text-white transition-colors"
-        >
-          Read More
-          <svg 
-            className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" 
-            fill="none" 
-            viewBox="0 0 24 24" 
-            stroke="currentColor"
+  
+        {/* Content Area */}
+        <div className="relative z-10 -mt-12 px-6 pb-8 text-center" style={{ transform: "translateZ(50px)" }}>
+          {/* Icon Circle */}
+          <div className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-slate-900 border border-white/10 shadow-xl transition-transform duration-300 group-hover:scale-110">
+            <Image 
+              src={icon} 
+              alt={`${title} icon`} 
+              width={45} 
+              height={45} 
+              className="h-auto w-11 object-contain invert"
+            />
+          </div>
+  
+          {/* Text Styling */}
+          <h3 className="mb-3 font-display text-[22px] font-semibold leading-[1.4] text-white transition-colors duration-300 group-hover:text-primary">
+            {title}
+          </h3>
+          <p className="mb-6 font-body text-base leading-[1.6] text-slate-400">
+            {description}
+          </p>
+  
+          {/* Read More Link */}
+          <Link 
+            href={link} 
+            className="inline-flex items-center font-display text-sm font-bold uppercase tracking-wider text-primary hover:text-white transition-colors"
           >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-          </svg>
-        </Link>
+            Read More
+            <svg 
+              className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" 
+              fill="none" 
+              viewBox="0 0 24 24" 
+              stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </Link>
+        </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
