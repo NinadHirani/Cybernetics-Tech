@@ -23,7 +23,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 70) {
+      if (window.scrollY > 50) {
         setIsAffixed(true);
       } else {
         setIsAffixed(false);
@@ -43,92 +43,61 @@ const Navbar = () => {
         isMega: true,
         columns: [
           {
-            title: "Our Core Services",
+            title: "Core Services",
             items: [
-              { name: "Product Design And Development", href: "/services" },
-              { name: "Website Development", href: "/services" },
+              { name: "Product Design", href: "/services" },
+              { name: "Web Development", href: "/services" },
               { name: "Software Development", href: "/services" },
-              { name: "Mobile App Development", href: "/services" },
-              { name: "SEO Service", href: "/services" },
+              { name: "Mobile Apps", href: "/services" },
+              { name: "SEO Optimization", href: "/services" },
             ],
           },
           {
-            title: "Graphic Design Services",
+            title: "Creative Solutions",
             items: [
               { name: "Branding", href: "/services" },
-              { name: "Brochure Design", href: "/services" },
-              { name: "Business Cards", href: "/services" },
-              { name: "Enevelope", href: "/services" },
-              { name: "Letter Pad Design", href: "/services" },
-              { name: "Logo Design", href: "/services" },
-              { name: "Packaging Design", href: "/services" },
-              { name: "Print Design", href: "/services" },
               { name: "UI/UX Design", href: "/services" },
-              { name: "Stationary Design", href: "/services" },
+              { name: "Packaging", href: "/services" },
+              { name: "Print Media", href: "/services" },
+              { name: "Logo Design", href: "/services" },
             ],
           },
         ] as Column[],
       },
       {
-        title: "Our Products",
+        title: "Products",
         href: "/products",
         isMega: true,
         columns: [
           {
             items: [
               { name: "Online Exam Software", href: "/services" },
-              { name: "Lead Management Software", href: "/services" },
-              { name: "Fees Management Software", href: "/services" },
-              { name: "Bulk Cheque Printing Software", href: "/services" },
-              { name: "Business ERP Software", href: "/services" },
-              { name: "Sales CRM Software", href: "/services" },
-              { name: "Event/Expo Registration", href: "/services" },
+              { name: "Lead Management", href: "/services" },
+              { name: "Fees Management", href: "/services" },
+              { name: "Bulk Cheque Printing", href: "/services" },
+              { name: "Business ERP", href: "/services" },
             ],
           },
           {
             items: [
+              { name: "Sales CRM", href: "/services" },
               { name: "Jewellery Tag Printing", href: "/services" },
-              { name: "Gross Account Software", href: "/services" },
-              { name: "Association Management", href: "/services" },
-              { name: "Library Management", href: "/services" },
+              { name: "Asset Management", href: "/services" },
+              { name: "Library Systems", href: "/services" },
               { name: "Vehicle Management", href: "/services" },
-              { name: "Export Management", href: "/services" },
             ],
           },
         ] as Column[],
       },
         {
-          title: "Ready Solutions",
-          href: "/services",
-          isMega: true,
-          columns: [
-            {
-              items: [
-                { name: "E-commerce Automobile", href: "/services" },
-                { name: "Online Vegetable Store", href: "/services" },
-                { name: "Matrimonial Portal", href: "/services" },
-              ],
-            },
-            {
-              items: [
-                { name: "Hotel & Restaurant", href: "/services" },
-                { name: "Insurance Management", href: "/services" },
-                { name: "School & Hostel Portal", href: "/services" },
-              ],
-            },
-          ] as Column[],
-        },
-        {
-          title: "Hire Developers",
+          title: "Hire Experts",
         href: "/contact-us",
         isFlyout: true,
         items: [
           { name: "Hire PHP Developers", href: "/contact-us" },
-          { name: "Hire Codeigniter Developers", href: "/contact-us" },
-          { name: "Hire WordPress Developers", href: "/contact-us" },
-          { name: "Hire Web Designer", href: "/contact-us" },
-          { name: "Hire Android Developers", href: "/contact-us" },
-          { name: "Hire iOS Developers", href: "/contact-us" },
+          { name: "Hire React Developers", href: "/contact-us" },
+          { name: "Hire UI/UX Designers", href: "/contact-us" },
+          { name: "Hire Mobile Developers", href: "/contact-us" },
         ],
       },
     ];
@@ -138,60 +107,59 @@ const Navbar = () => {
       <nav
         id="navbar"
         className={cn(
-          "fixed top-0 left-0 right-0 z-[1000] w-full transition-all duration-300 ease-in-out py-[10px]",
-          isAffixed ? "bg-background/90 backdrop-blur-md shadow-md shadow-black/20 border-b border-white/5" : "bg-transparent"
+          "fixed top-0 left-0 right-0 z-[1000] w-full transition-all duration-500 ease-in-out py-3",
+          isAffixed ? "bg-background/80 backdrop-blur-xl shadow-2xl border-b border-white/5 py-2" : "bg-transparent"
         )}
       >
-        <div className="container mx-auto max-w-[1170px] px-[15px]">
-          <div className="flex items-center justify-between h-[60px]">
+        <div className="container mx-auto max-w-[1170px] px-4">
+          <div className="flex items-center justify-between h-16">
             {/* Logo Section */}
             <div className="flex-shrink-0">
-              <Link href="/" className="block">
-                <Logo />
+              <Link href="/" className="block transition-transform hover:scale-105">
+                <Logo className="scale-90" />
               </Link>
             </div>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center flex-grow justify-end">
-              <ul className="flex items-center list-none m-0 p-0 text-[15px] font-medium font-display">
+            <div className="hidden lg:flex items-center space-x-2">
+              <ul className="flex items-center list-none m-0 p-0 text-[14px] font-bold font-display uppercase tracking-wider">
                 {menuItems.map((item, idx) => (
-                  <li key={idx} className="group relative px-[15px] py-[20px]">
+                  <li key={idx} className="group relative px-4 py-6">
                     <Link
                       href={item.href}
                       className={cn(
-                        "transition-colors duration-300 flex items-center hover:text-primary text-white"
+                        "transition-colors duration-300 flex items-center hover:text-primary text-slate-300 group-hover:text-white"
                       )}
                     >
                       {item.title}
                       {(item.isMega || item.isFlyout) && (
-                        <ChevronDown className="ml-1 w-4 h-4 opacity-50 group-hover:rotate-180 transition-transform duration-300" />
+                        <ChevronDown className="ml-1 w-4 h-4 opacity-50 group-hover:rotate-180 transition-transform duration-500" />
                       )}
                     </Link>
 
                     {/* Mega Menu / Dropdown */}
                     {(item.isMega || item.isFlyout) && (
-                      <div className="absolute top-full left-1/2 -translate-x-1/2 invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-300 ease-in-out pt-[10px]">
+                      <div className="absolute top-full left-1/2 -translate-x-1/2 invisible opacity-0 translate-y-2 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out pt-2">
                         <div className={cn(
-                          "bg-card border-t-2 border-primary shadow-2xl p-6 rounded-b-[4px] border-x border-b border-white/5",
-                          item.isMega ? "w-[700px] grid grid-cols-2 gap-8" : "w-[250px]"
+                          "bg-slate-900/95 backdrop-blur-2xl border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] p-8 rounded-2xl overflow-hidden",
+                          item.isMega ? "w-[640px] grid grid-cols-2 gap-10" : "w-[260px]"
                         )}>
                           {item.isMega ? (
                             item.columns?.map((col: Column, colIdx: number) => (
                               <div key={colIdx}>
                                 {col.title && (
-                                  <h4 className="text-[14px] font-bold text-white mb-4 uppercase tracking-wider flex items-center gap-2">
-                                    <div className="w-1 h-4 bg-primary rounded-full"></div>
+                                  <h4 className="text-[12px] font-bold text-primary mb-5 uppercase tracking-[0.2em]">
                                     {col.title}
                                   </h4>
                                 )}
-                                <ul className="space-y-2">
+                                <ul className="space-y-3">
                                   {col.items.map((sub: SubMenuItem, subIdx: number) => (
                                     <li key={subIdx}>
                                       <Link
                                         href={sub.href}
-                                        className="text-slate-400 hover:text-primary text-[14px] transition-all flex items-start gap-2 group/link"
+                                        className="text-slate-400 hover:text-white text-[13px] transition-all flex items-center gap-3 group/link"
                                       >
-                                        <Check className="w-3.5 h-3.5 mt-1 text-primary invisible group-hover/link:visible" />
+                                        <div className="w-1 h-1 bg-primary/40 rounded-full group-hover/link:w-3 group-hover/link:bg-primary transition-all duration-300"></div>
                                         <span className="leading-tight">{sub.name}</span>
                                       </Link>
                                     </li>
@@ -200,14 +168,14 @@ const Navbar = () => {
                               </div>
                             ))
                           ) : (
-                            <ul className="space-y-2">
+                            <ul className="space-y-3">
                               {item.items?.map((sub: SubMenuItem, subIdx: number) => (
                                 <li key={subIdx}>
                                   <Link
                                     href={sub.href}
-                                    className="text-slate-400 hover:text-primary text-[14px] py-1 border-b border-white/5 flex items-center gap-2 group/link"
+                                    className="text-slate-400 hover:text-white text-[13px] flex items-center gap-3 group/link"
                                   >
-                                    <Check className="w-3 h-3 text-primary invisible group-hover/link:visible" />
+                                    <div className="w-1 h-1 bg-primary/40 rounded-full group-hover/link:w-3 group-hover/link:bg-primary transition-all duration-300"></div>
                                     {sub.name}
                                   </Link>
                                 </li>
@@ -222,10 +190,10 @@ const Navbar = () => {
               </ul>
 
               {/* Contact Us Button */}
-              <div className="ml-4 hvr-wobble-horizontal">
+              <div className="ml-6">
                 <Link
                   href="/contact-us/"
-                  className="btn btn-sm grdnt-green text-white font-bold text-[14px] px-[25px] py-[10px] rounded-[8px] uppercase font-display"
+                  className="relative px-8 py-3 rounded-xl bg-primary text-white font-bold text-[13px] uppercase tracking-widest transition-all duration-300 hover:scale-105 hover:bg-blue-600 hover:shadow-[0_0_20px_rgba(37,99,235,0.4)]"
                 >
                   Contact Us
                 </Link>
@@ -234,10 +202,10 @@ const Navbar = () => {
 
             {/* Mobile Menu Toggle */}
             <button
-              className="lg:hidden p-2"
+              className="lg:hidden p-2 text-white"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
-              <Menu className={cn("w-8 h-8 text-white")} />
+              <Menu className="w-7 h-7" />
             </button>
           </div>
         </div>
@@ -245,47 +213,47 @@ const Navbar = () => {
         {/* Mobile Sidebar */}
         <div
           className={cn(
-            "fixed inset-0 bg-background z-[2000] lg:hidden transition-transform duration-300 flex flex-col",
-            mobileMenuOpen ? "translate-x-0" : "translate-x-full"
+            "fixed inset-0 bg-background/95 backdrop-blur-xl z-[2000] lg:hidden transition-all duration-500 ease-in-out flex flex-col",
+            mobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
           )}
         >
-          <div className="flex items-center justify-between p-4 border-b border-white/5">
+          <div className="flex items-center justify-between p-6 border-b border-white/5">
              <Link href="/" onClick={() => setMobileMenuOpen(false)}>
-               <Logo />
+               <Logo className="scale-90" />
              </Link>
-             <button onClick={() => setMobileMenuOpen(false)} className="text-[32px] font-light leading-none text-white">
+             <button onClick={() => setMobileMenuOpen(false)} className="text-[40px] font-light text-white">
                ×
              </button>
           </div>
-          <div className="flex-1 overflow-y-auto p-4">
-            <ul className="space-y-4 font-display font-medium text-[16px]">
+          <div className="flex-1 overflow-y-auto p-8">
+            <ul className="space-y-6 font-display font-bold text-[18px] uppercase tracking-wider">
               {menuItems.map((item, idx) => (
-                <li key={idx} className="border-b border-white/5 pb-2">
+                <li key={idx} className="border-b border-white/5 pb-4">
                   <div className="flex items-center justify-between">
-                    <Link href={item.href} className="text-white hover:text-primary">{item.title}</Link>
+                    <Link href={item.href} onClick={() => setMobileMenuOpen(false)} className="text-white">{item.title}</Link>
                     {(item.isMega || item.isFlyout) && (
                       <button
                         onClick={() => setActiveSubMenu(activeSubMenu === item.title ? null : item.title)}
-                        className="p-2 text-white"
+                        className="p-2 text-primary"
                       >
-                        <ChevronDown className={cn("w-5 h-5 transition-transform", activeSubMenu === item.title ? "rotate-180" : "")} />
+                        <ChevronDown className={cn("w-6 h-6 transition-transform", activeSubMenu === item.title ? "rotate-180" : "")} />
                       </button>
                     )}
                   </div>
                   {(item.isMega || item.isFlyout) && activeSubMenu === item.title && (
-                    <div className="mt-3 pl-4 space-y-3">
+                    <div className="mt-4 pl-4 space-y-4">
                       {item.isMega ? (
                         item.columns?.map((col: Column, cIdx: number) => (
-                          <div key={cIdx} className="space-y-2">
-                             {col.title && <h5 className="text-[12px] font-bold text-slate-500 uppercase">{col.title}</h5>}
+                          <div key={cIdx} className="space-y-3">
+                             {col.title && <h5 className="text-[11px] font-bold text-primary/60 tracking-widest">{col.title}</h5>}
                              {col.items.map((sub: SubMenuItem, sIdx: number) => (
-                               <Link key={sIdx} href={sub.href} className="block text-[14px] text-slate-400 py-1">{sub.name}</Link>
+                               <Link key={sIdx} href={sub.href} onClick={() => setMobileMenuOpen(false)} className="block text-[15px] text-slate-400">{sub.name}</Link>
                              ))}
                           </div>
                         ))
                       ) : (
                         item.items?.map((sub: SubMenuItem, sIdx: number) => (
-                          <Link key={sIdx} href={sub.href} className="block text-[14px] text-slate-400 py-1">{sub.name}</Link>
+                          <Link key={sIdx} href={sub.href} onClick={() => setMobileMenuOpen(false)} className="block text-[15px] text-slate-400">{sub.name}</Link>
                         ))
                       )}
                     </div>
@@ -294,42 +262,17 @@ const Navbar = () => {
               ))}
             </ul>
           </div>
-          <div className="p-4 bg-slate-900">
+          <div className="p-8">
             <Link
               href="/contact-us/"
-              className="block text-center grdnt-green text-white py-3 rounded-lg font-bold uppercase"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block text-center bg-primary text-white py-4 rounded-2xl font-bold uppercase tracking-widest"
             >
               Contact Us
             </Link>
           </div>
         </div>
       </nav>
-
-      <style jsx global>{`
-        .grdnt-green {
-          background: linear-gradient(to right, #1d4ed8, #3b82f6);
-        }
-        .hvr-wobble-horizontal {
-          display: inline-block;
-          vertical-align: middle;
-          transform: perspective(1px) translateZ(0);
-          box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-        }
-        .hvr-wobble-horizontal:hover {
-          animation-name: hvr-wobble-horizontal;
-          animation-duration: 1s;
-          animation-timing-function: ease-in-out;
-          animation-iteration-count: 1;
-        }
-        @keyframes hvr-wobble-horizontal {
-          16.65% { transform: translateX(8px); }
-          33.3% { transform: translateX(-6px); }
-          49.95% { transform: translateX(4px); }
-          66.6% { transform: translateX(-2px); }
-          83.25% { transform: translateX(1px); }
-          100% { transform: translateX(0); }
-        }
-      `}</style>
     </header>
   );
 };

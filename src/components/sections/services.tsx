@@ -1,12 +1,11 @@
 "use client";
 
-import React, { useState, useRef } from 'react';
+import React, { useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 
 const ServiceCard = ({ 
-
   title, 
   description, 
   icon, 
@@ -22,24 +21,21 @@ const ServiceCard = ({
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
-  const mouseXSpring = useSpring(x);
-  const mouseYSpring = useSpring(y);
+  const mouseXSpring = useSpring(x, { damping: 20, stiffness: 100 });
+  const mouseYSpring = useSpring(y, { damping: 20, stiffness: 100 });
 
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["17.5deg", "-17.5deg"]);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-17.5deg", "17.5deg"]);
+  // Subtle professional tilt
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["8deg", "-8deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-8deg", "8deg"]);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     const rect = e.currentTarget.getBoundingClientRect();
-
     const width = rect.width;
     const height = rect.height;
-
     const mouseX = e.clientX - rect.left;
     const mouseY = e.clientY - rect.top;
-
     const xPct = mouseX / width - 0.5;
     const yPct = mouseY / height - 0.5;
-
     x.set(xPct);
     y.set(yPct);
   };
@@ -58,55 +54,56 @@ const ServiceCard = ({
         rotateX,
         transformStyle: "preserve-3d",
       }}
-      className="group relative overflow-hidden rounded-lg bg-card border border-white/5 shadow-2xl transition-all duration-300"
+      className="group relative overflow-hidden rounded-xl bg-slate-900/50 backdrop-blur-sm border border-white/10 shadow-2xl transition-all duration-300 hover:border-primary/50"
     >
-      <div style={{ transform: "translateZ(75px)", transformStyle: "preserve-3d" }}>
+      <div style={{ transform: "translateZ(50px)", transformStyle: "preserve-3d" }}>
         {/* Background Image Wrapper */}
-        <div className="relative h-[250px] w-full overflow-hidden">
+        <div className="relative h-[220px] w-full overflow-hidden">
           <Image 
             src={bgImage} 
             alt={title} 
             fill 
-            className="object-cover transition-transform duration-500 group-hover:scale-110"
+            className="object-cover transition-transform duration-700 group-hover:scale-110 grayscale-[0.2] group-hover:grayscale-0"
           />
-          {/* Overlay */}
-          <div className="absolute inset-0 bg-black/60 transition-opacity duration-300 group-hover:bg-black/40" />
+          {/* Refined Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent" />
         </div>
   
         {/* Content Area */}
-        <div className="relative z-10 -mt-12 px-6 pb-8 text-center" style={{ transform: "translateZ(50px)" }}>
-          {/* Icon Circle */}
-          <div className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-slate-900 border border-white/10 shadow-xl transition-transform duration-300 group-hover:scale-110">
-            <Image 
-              src={icon} 
-              alt={`${title} icon`} 
-              width={45} 
-              height={45} 
-              className="h-auto w-11 object-contain invert"
-            />
+        <div className="relative z-10 -mt-10 px-6 pb-8 text-center" style={{ transform: "translateZ(30px)" }}>
+          {/* Professional Icon Container */}
+          <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-slate-800/80 backdrop-blur-md border border-white/10 shadow-xl transition-all duration-500 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-primary/20">
+            <div className="relative w-10 h-10">
+              <Image 
+                src={icon} 
+                alt={`${title} icon`} 
+                fill
+                className="object-contain invert opacity-80 group-hover:opacity-100 transition-opacity"
+              />
+            </div>
           </div>
   
           {/* Text Styling */}
-          <h3 className="mb-3 font-display text-[22px] font-semibold leading-[1.4] text-white transition-colors duration-300 group-hover:text-primary">
+          <h3 className="mb-3 font-display text-[20px] font-bold leading-[1.4] text-white transition-colors duration-300 group-hover:text-primary">
             {title}
           </h3>
-          <p className="mb-6 font-body text-base leading-[1.6] text-slate-400">
+          <p className="mb-6 font-body text-sm leading-[1.6] text-slate-400 line-clamp-2">
             {description}
           </p>
   
-          {/* Read More Link */}
+          {/* Clean Read More Link */}
           <Link 
             href={link} 
-            className="inline-flex items-center font-display text-sm font-bold uppercase tracking-wider text-primary hover:text-white transition-colors"
+            className="inline-flex items-center font-display text-[12px] font-bold uppercase tracking-widest text-primary hover:text-white transition-all group/link"
           >
-            Read More
+            Explore Solution
             <svg 
-              className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" 
+              className="ml-2 h-3.5 w-3.5 transition-transform duration-300 group-hover/link:translate-x-1.5" 
               fill="none" 
               viewBox="0 0 24 24" 
               stroke="currentColor"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </Link>
         </div>
@@ -119,88 +116,105 @@ const ServicesSection = () => {
     const services = [
         {
           title: "Web Development",
-          description: "We provide high-quality and cost-effective website development services for your business requirements.",
+          description: "High-performance enterprise web applications built with modern frameworks for scale and reliability.",
           icon: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c7eda8bf-0b51-4df9-bd1e-d810430a3d49-rkinfotechindia-com/assets/images/website-development-1-7.png",
           bgImage: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c7eda8bf-0b51-4df9-bd1e-d810430a3d49-rkinfotechindia-com/assets/images/website_development-2.jpg",
           link: "/services/web-development"
         },
         {
           title: "App Development",
-          description: "Native and Hybrid mobile applications with seamless user experience and high performance for iOS and Android.",
+          description: "Native and cross-platform mobile experiences that bridge the gap between user needs and technology.",
           icon: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c7eda8bf-0b51-4df9-bd1e-d810430a3d49-rkinfotechindia-com/assets/images/Application_Development-8.png",
           bgImage: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c7eda8bf-0b51-4df9-bd1e-d810430a3d49-rkinfotechindia-com/assets/images/application_development-3.jpg",
           link: "/services/app-development"
         },
         {
-          title: "Graphics Design",
-          description: "Creative and meaningful visual concepts to communicate ideas that inspire, inform, and captivate consumers.",
-          icon: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c7eda8bf-0b51-4df9-bd1e-d810430a3d49-rkinfotechindia-com/assets/images/graphics-design-1-9.png",
-          bgImage: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c7eda8bf-0b51-4df9-bd1e-d810430a3d49-rkinfotechindia-com/assets/images/graphics_design-4.jpg",
-          link: "/services/graphics-design"
-        },
-        {
-          title: "SEO Service",
-          description: "Improving your website visibility and search engine rankings to drive more organic traffic and growth.",
-          icon: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c7eda8bf-0b51-4df9-bd1e-d810430a3d49-rkinfotechindia-com/assets/images/seo_service-10.png",
-          bgImage: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c7eda8bf-0b51-4df9-bd1e-d810430a3d49-rkinfotechindia-com/assets/images/seo_services-5.jpg",
-          link: "/services/seo-service"
-        },
-        {
           title: "Software Development",
-          description: "Custom software solutions designed to automate business processes and increase organizational efficiency.",
+          description: "Custom software architecture designed to optimize complex business processes and data flows.",
           icon: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c7eda8bf-0b51-4df9-bd1e-d810430a3d49-rkinfotechindia-com/assets/images/Software_Development-11.png",
           bgImage: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c7eda8bf-0b51-4df9-bd1e-d810430a3d49-rkinfotechindia-com/assets/images/software_development-6.jpg",
           link: "/services/software-development"
         }
-
     ];
 
     return (
-      <section id="services" className="bg-[#0f172a] py-20 border-t border-white/5">
-        <div className="container px-[15px] mx-auto max-w-[1170px]">
+      <section id="services" className="bg-background py-24 relative overflow-hidden">
+        {/* Subtle Background Elements */}
+        <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-[0.03]">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:32px_32px]" />
+        </div>
+
+        <div className="container px-[15px] mx-auto max-w-[1170px] relative z-10">
           {/* Section Header */}
-          <div className="mb-14 text-center">
-            <h2 className="mb-4 font-display text-[36px] font-semibold leading-[1.3] text-white">
-              Our <span className="text-primary">Services</span>
-            </h2>
-            <div className="mx-auto h-1 w-20 bg-primary rounded-full" />
-            <p className="mx-auto mt-6 max-w-2xl font-body text-base text-slate-400">
-              We provide a wide range of creative and technical services to help your business grow and succeed in the digital world.
-            </p>
+          <div className="mb-20 text-center">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="inline-block px-4 py-1.5 mb-4 rounded-full bg-primary/10 border border-primary/20 text-primary text-[11px] font-bold tracking-[0.2em] uppercase"
+            >
+              Capabilities
+            </motion.div>
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="mb-6 font-display text-[32px] md:text-[42px] font-bold leading-[1.2] text-white tracking-tight"
+            >
+              Future-Ready <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">IT Solutions</span>
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="mx-auto max-w-2xl font-body text-base text-slate-400"
+            >
+              We integrate cybernetic principles with advanced engineering to deliver systems that are not just functional, but intelligent and adaptive.
+            </motion.p>
           </div>
 
           {/* Services Grid */}
-          <div className="grid grid-cols-1 gap-[30px] md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {services.map((service, index) => (
-              <ServiceCard 
+              <motion.div
                 key={index}
-                title={service.title}
-                description={service.description}
-                icon={service.icon}
-                bgImage={service.bgImage}
-                link={service.link}
-              />
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+              >
+                <ServiceCard 
+                  title={service.title}
+                  description={service.description}
+                  icon={service.icon}
+                  bgImage={service.bgImage}
+                  link={service.link}
+                />
+              </motion.div>
             ))}
           </div>
 
           {/* View All Button */}
-          <div className="mt-16 text-center">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4 }}
+            className="mt-20 text-center"
+          >
             <Link 
               href="/services" 
-              className="hvr-wobble-horizontal inline-block rounded-[8px] px-8 py-3 font-display text-sm font-bold uppercase tracking-wider text-white grdnt-green transition-all shadow-lg shadow-primary/20"
+              className="group relative inline-flex items-center justify-center rounded-xl bg-white/5 border border-white/10 px-10 py-4 text-sm font-bold text-white transition-all duration-300 hover:bg-white/10 hover:border-primary/50 hover:scale-105"
             >
-              Explore All Services
+              <span className="relative z-10">VIEW ALL SERVICES</span>
+              <div className="absolute inset-0 bg-primary/10 blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
             </Link>
-          </div>
+          </motion.div>
         </div>
-
-      <style jsx global>{`
-        .grdnt-green {
-          background: linear-gradient(to right, #1d4ed8, #3b82f6);
-        }
-      `}</style>
-    </section>
-  );
+      </section>
+    );
 };
 
 export default ServicesSection;
