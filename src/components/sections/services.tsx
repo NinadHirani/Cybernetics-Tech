@@ -18,45 +18,12 @@ const ServiceCard = ({
   bgImage: string; 
   link: string;
 }) => {
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-
-  const mouseXSpring = useSpring(x, { damping: 20, stiffness: 100 });
-  const mouseYSpring = useSpring(y, { damping: 20, stiffness: 100 });
-
-  // Subtle professional tilt
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["8deg", "-8deg"]);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-8deg", "8deg"]);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
-    const mouseX = e.clientX - rect.left;
-    const mouseY = e.clientY - rect.top;
-    const xPct = mouseX / width - 0.5;
-    const yPct = mouseY / height - 0.5;
-    x.set(xPct);
-    y.set(yPct);
-  };
-
-  const handleMouseLeave = () => {
-    x.set(0);
-    y.set(0);
-  };
-
   return (
     <motion.div 
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{
-        rotateY,
-        rotateX,
-        transformStyle: "preserve-3d",
-      }}
-      className="group relative overflow-hidden rounded-xl bg-slate-900/50 backdrop-blur-sm border border-white/10 shadow-2xl transition-all duration-300 hover:border-primary/50"
+      whileTap={{ scale: 0.95 }}
+      className="group relative overflow-hidden rounded-xl bg-slate-900/50 backdrop-blur-sm border border-white/10 shadow-2xl transition-all duration-300 hover:border-primary/50 cursor-pointer"
     >
-      <div style={{ transform: "translateZ(50px)", transformStyle: "preserve-3d" }}>
+      <div>
         {/* Background Image Wrapper */}
         <div className="relative h-[220px] w-full overflow-hidden">
           <Image 
@@ -70,7 +37,7 @@ const ServiceCard = ({
         </div>
   
         {/* Content Area */}
-        <div className="relative z-10 -mt-10 px-6 pb-8 text-center" style={{ transform: "translateZ(30px)" }}>
+        <div className="relative z-10 -mt-10 px-6 pb-8 text-center">
           {/* Professional Icon Container */}
           <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-slate-800/80 backdrop-blur-md border border-white/10 shadow-xl transition-all duration-500 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-primary/20">
             <div className="relative w-10 h-10">

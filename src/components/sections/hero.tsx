@@ -18,11 +18,6 @@ const Hero = () => {
   const mouseXSpring = useSpring(mouseX, springConfig);
   const mouseYSpring = useSpring(mouseY, springConfig);
 
-  const textRotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["3deg", "-3deg"]);
-  const textRotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-3deg", "3deg"]);
-  const textTranslateX = useTransform(mouseXSpring, [-0.5, 0.5], ["-5px", "5px"]);
-  const textTranslateY = useTransform(mouseYSpring, [-0.5, 0.5], ["-5px", "5px"]);
-
   const gridX = useTransform(mouseXSpring, [-0.5, 0.5], ["-20px", "20px"]);
   const gridY = useTransform(mouseYSpring, [-0.5, 0.5], ["-20px", "20px"]);
 
@@ -33,13 +28,50 @@ const Hero = () => {
     mouseY.set(clientY / innerHeight - 0.5);
   };
 
+  const [clicks, setClicks] = React.useState<{ id: number; x: number; y: number }[]>([]);
+
+  const handleClick = (e: React.MouseEvent) => {
+    const rect = containerRef.current?.getBoundingClientRect();
+    if (!rect) return;
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const id = Date.now();
+    setClicks(prev => [...prev, { id, x, y }]);
+    setTimeout(() => {
+      setClicks(prev => prev.filter(click => click.id !== id));
+    }, 1000);
+  };
+
   return (
     <section 
       id="home" 
       ref={containerRef}
       onMouseMove={handleMouseMove}
-      className="relative min-h-screen w-full flex items-center overflow-hidden bg-background pt-[70px]"
+      onClick={handleClick}
+      className="relative min-h-screen w-full flex items-center overflow-hidden bg-background pt-[70px] cursor-crosshair"
     >
+      {/* Click Ripples */}
+      {clicks.map(click => (
+        <motion.div
+          key={click.id}
+          initial={{ scale: 0, opacity: 0.5 }}
+          animate={{ scale: 4, opacity: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          style={{
+            position: "absolute",
+            left: click.x,
+            top: click.y,
+            width: 50,
+            height: 50,
+            marginLeft: -25,
+            marginTop: -25,
+            borderRadius: "50%",
+            backgroundColor: "rgba(59, 130, 246, 0.4)",
+            pointerEvents: "none",
+            zIndex: 50
+          }}
+        />
+      ))}
       {/* Professional Tech Background */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         {/* Animated Dot Grid */}
@@ -74,13 +106,6 @@ const Hero = () => {
       <div className="container relative z-10 mx-auto px-[15px] max-w-[1170px]">
         <div className="flex flex-wrap items-center">
           <motion.div 
-            style={{ 
-              rotateX: textRotateX, 
-              rotateY: textRotateY,
-              x: textTranslateX,
-              y: textTranslateY,
-              transformStyle: "preserve-3d"
-            }}
             className="w-full lg:w-8/12 text-left"
           >
             <motion.div
@@ -100,7 +125,6 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              style={{ transform: "translateZ(50px)" }}
               className="text-[40px] md:text-[64px] font-bold font-display text-white mb-6 leading-[1.1] tracking-tight"
             >
               Driving <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">Digital Innovation</span> <br className="hidden md:block" /> with Cybernetics
@@ -110,7 +134,6 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              style={{ transform: "translateZ(30px)" }}
               className="text-[18px] md:text-[22px] font-medium font-body text-slate-400 mb-10 leading-[1.6] max-w-2xl"
             >
               Empowering businesses with enterprise-grade IT solutions and cutting-edge cybernetics. Reliability, scalability, and excellence delivered.
@@ -120,7 +143,6 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              style={{ transform: "translateZ(20px)" }}
               className="flex flex-wrap gap-5"
             >
               <Link 
