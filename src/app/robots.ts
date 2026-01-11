@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/private/',
     },
-    sitemap: 'https://cyberneticstech.com/sitemap.xml',
+    sitemap: 'https://cybernetics-tech.vercel.app/sitemap.xml',
   };
 }
