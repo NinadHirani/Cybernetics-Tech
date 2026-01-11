@@ -8,47 +8,48 @@ const projects = [
     {
       title: 'Virtual Chokidar',
       image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c7eda8bf-0b51-4df9-bd1e-d810430a3d49-rkinfotechindia-com/assets/images/Virtual-Chokidar-1920x1920-13.png',
-      link: '/#our-work'
-    },
-    {
-      title: 'SpiceNest',
-      image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c7eda8bf-0b51-4df9-bd1e-d810430a3d49-rkinfotechindia-com/assets/images/SpiceNest--1920x1920-14.png',
-      link: '/#our-work'
-    },
-    {
-      title: 'Cinix Autoparts',
-      image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c7eda8bf-0b51-4df9-bd1e-d810430a3d49-rkinfotechindia-com/assets/images/CinixAutoparts-1920x1920-15.png',
-      link: '/#our-work'
-    },
-    {
-      title: 'ElectroTech Pvt Ltd',
-      image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c7eda8bf-0b51-4df9-bd1e-d810430a3d49-rkinfotechindia-com/assets/images/Contact-Electrotech-Pvt_-Ltd--1920x1920-16.png',
-      link: '/#our-work'
-    },
-    {
-      title: 'UV Business System',
-      image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c7eda8bf-0b51-4df9-bd1e-d810430a3d49-rkinfotechindia-com/assets/images/UV-Business-System-1920x1920-17.png',
-      link: '/#our-work'
-    },
-    {
-      title: 'Giriraj Tractors',
-      image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c7eda8bf-0b51-4df9-bd1e-d810430a3d49-rkinfotechindia-com/assets/images/Giriraj-Tractors-1920x1920-18.png',
-      link: '/#our-work'
-    },
-    {
-      title: 'Myka Software',
-      image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c7eda8bf-0b51-4df9-bd1e-d810430a3d49-rkinfotechindia-com/assets/images/Myka1675339369-1-1-1920x1920-19.png',
-      link: '/#our-work'
-    },
-    {
-      title: 'Khodaldham KDVS',
-      image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c7eda8bf-0b51-4df9-bd1e-d810430a3d49-rkinfotechindia-com/assets/images/Khodaldham-KDVS-1-1920x1920-20.png',
-      link: '/#our-work'
-    },
-    {
-      title: 'Shree Metal Industries',
-      image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c7eda8bf-0b51-4df9-bd1e-d810430a3d49-rkinfotechindia-com/assets/images/work-1920x1920-12.jpg',
-      link: '/#our-work'
+        link: '/our-work'
+      },
+      {
+        title: 'SpiceNest',
+        image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c7eda8bf-0b51-4df9-bd1e-d810430a3d49-rkinfotechindia-com/assets/images/SpiceNest--1920x1920-14.png',
+        link: '/our-work'
+      },
+      {
+        title: 'Cinix Autoparts',
+        image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c7eda8bf-0b51-4df9-bd1e-d810430a3d49-rkinfotechindia-com/assets/images/CinixAutoparts-1920x1920-15.png',
+        link: '/our-work'
+      },
+      {
+        title: 'ElectroTech Pvt Ltd',
+        image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c7eda8bf-0b51-4df9-bd1e-d810430a3d49-rkinfotechindia-com/assets/images/Contact-Electrotech-Pvt_-Ltd--1920x1920-16.png',
+        link: '/our-work'
+      },
+      {
+        title: 'UV Business System',
+        image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c7eda8bf-0b51-4df9-bd1e-d810430a3d49-rkinfotechindia-com/assets/images/UV-Business-System-1920x1920-17.png',
+        link: '/our-work'
+      },
+      {
+        title: 'Giriraj Tractors',
+        image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c7eda8bf-0b51-4df9-bd1e-d810430a3d49-rkinfotechindia-com/assets/images/Giriraj-Tractors-1920x1920-18.png',
+        link: '/our-work'
+      },
+      {
+        title: 'Myka Software',
+        image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c7eda8bf-0b51-4df9-bd1e-d810430a3d49-rkinfotechindia-com/assets/images/Myka1675339369-1-1-1920x1920-19.png',
+        link: '/our-work'
+      },
+      {
+        title: 'Khodaldham KDVS',
+        image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c7eda8bf-0b51-4df9-bd1e-d810430a3d49-rkinfotechindia-com/assets/images/Khodaldham-KDVS-1-1920x1920-20.png',
+        link: '/our-work'
+      },
+      {
+        title: 'Shree Metal Industries',
+        image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c7eda8bf-0b51-4df9-bd1e-d810430a3d49-rkinfotechindia-com/assets/images/work-1920x1920-12.jpg',
+        link: '/our-work'
+
     }
   ];
 
@@ -110,7 +111,7 @@ const projects = [
           {/* View All Button */}
           <div className="text-center mt-[60px]">
             <Link 
-              href="/#our-work" 
+              href="/our-work" 
               className="inline-block px-[40px] py-[15px] grdnt-green rounded-[8px] text-white font-bold text-[14px] uppercase tracking-wide hvr-wobble-horizontal shadow-lg shadow-primary/20"
             >
               View All Projects
