@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Facebook, Instagram, Linkedin, Mail, MapPin, Twitter, Youtube } from 'lucide-react';
+import { Linkedin, Mail, MapPin } from 'lucide-react';
 import { Logo } from '@/components/ui/logo';
 
 const Footer = () => {
@@ -18,17 +18,13 @@ const Footer = () => {
               Cybernetics-Tech provides reliable and affordable IT solutions for your business growth. End-to-end technology solutions tailored to your needs.
             </p>
             <div className="flex gap-2 mb-8">
-              <a href="#" className="w-10 h-10 rounded-full border border-zinc-700 flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-300 group">
-                <Facebook className="w-4 h-4 text-white group-hover:scale-110" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full border border-zinc-700 flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-300 group">
-                <Twitter className="w-4 h-4 text-white group-hover:scale-110" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full border border-zinc-700 flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-300 group">
+              <a 
+                href="https://www.linkedin.com/company/cybernetics-technologia" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-10 h-10 rounded-full border border-zinc-700 flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-300 group"
+              >
                 <Linkedin className="w-4 h-4 text-white group-hover:scale-110" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full border border-zinc-700 flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-300 group">
-                <Instagram className="w-4 h-4 text-white group-hover:scale-110" />
               </a>
             </div>
           </div>
