@@ -17,7 +17,7 @@ export default function WhoWeArePage() {
                     src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c7eda8bf-0b51-4df9-bd1e-d810430a3d49-rkinfotechindia-com/assets/images/about_us-1.jpg"
                     alt="Cybernetics-Tech Team"
                     fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="object-cover"
                   />
                 </div>
               </div>
@@ -29,11 +29,17 @@ export default function WhoWeArePage() {
                 </h2>
                 <div className="w-[60px] h-[3px] bg-primary mb-8"></div>
                 <p className="text-slate-400 text-[18px] leading-[1.6] mb-6 font-body">
-                  Cybernetics-Tech is a leading IT solutions provider based in Rajkot, Gujarat. We specialize in delivering high-quality web development, software solutions, and digital transformation services.
+                  We are a technology-driven IT services company focused on building reliable websites, applications, and digital systems. Our work sits at the intersection of thoughtful design and solid engineering, where every product is built to perform, scale, and last.
                 </p>
-                  <p className="text-slate-400 text-[16px] leading-[1.6] mb-8 font-body">
-                    Our team of expert developers and designers is committed to helping businesses grow through innovative technology and creative excellence.
-                  </p>
+                <p className="text-slate-400 text-[16px] leading-[1.6] mb-6 font-body">
+                  We believe good technology is not just about writing code—it’s about understanding problems, designing clear systems, and delivering solutions that make sense in the real world. From simple business websites to complex applications, we approach every project with the same discipline and attention to detail.
+                </p>
+                <p className="text-slate-400 text-[16px] leading-[1.6] mb-6 font-body">
+                  As a growing team, we value clarity, accountability, and long-term thinking. We work closely with our clients, communicate openly, and focus on outcomes rather than buzzwords. Our goal is to become a dependable technology partner for businesses that want solutions they can trust.
+                </p>
+                <p className="text-slate-400 text-[24px] leading-[1.6] font-body">
+                  ⸻
+                </p>
                 </div>
             </div>
           </div>
