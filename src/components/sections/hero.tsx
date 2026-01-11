@@ -122,20 +122,16 @@ const Hero = () => {
                   </Link>
                 </div>
 
-            <div className="mt-12 flex items-center space-x-6 opacity-80">
-              <div className="text-center border-r border-white/10 pr-6">
-                <p className="text-[28px] font-bold text-primary font-display">1500+</p>
-                <p className="text-[12px] uppercase tracking-wider font-medium font-body text-slate-400">Projects Done</p>
-              </div>
-                <div className="text-center border-r border-white/10 pr-6">
-                  <p className="text-[28px] font-bold text-primary font-display">3+</p>
-                  <p className="text-[12px] uppercase tracking-wider font-medium font-body text-slate-400">Years Experience</p>
+              <div className="mt-12 flex items-center space-x-6 opacity-80">
+                  <div className="text-center border-r border-white/10 pr-6">
+                    <p className="text-[28px] font-bold text-primary font-display">3+</p>
+                    <p className="text-[12px] uppercase tracking-wider font-medium font-body text-slate-400">Years Experience</p>
+                  </div>
+                <div className="text-center">
+                  <p className="text-[28px] font-bold text-primary font-display">950+</p>
+                  <p className="text-[12px] uppercase tracking-wider font-medium font-body text-slate-400">Happy Clients</p>
                 </div>
-              <div className="text-center">
-                <p className="text-[28px] font-bold text-primary font-display">950+</p>
-                <p className="text-[12px] uppercase tracking-wider font-medium font-body text-slate-400">Happy Clients</p>
               </div>
-            </div>
           </div>
         </div>
       </div>

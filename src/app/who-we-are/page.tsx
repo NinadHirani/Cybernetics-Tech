@@ -32,18 +32,14 @@ export default function WhoWeArePage() {
                   Cybernetics-Tech is a leading IT solutions provider based in Rajkot, Gujarat. We specialize in delivering high-quality web development, software solutions, and digital transformation services.
                 </p>
                 <p className="text-slate-400 text-[16px] leading-[1.6] mb-8 font-body">
-                  With over 3 years of experience and a track record of 1500+ successful projects, our team of expert developers and designers is committed to helping businesses grow through innovative technology and creative excellence.
+                  With over 3 years of experience, our team of expert developers and designers is committed to helping businesses grow through innovative technology and creative excellence.
                 </p>
-                <div className="grid grid-cols-2 gap-6">
-                  <div className="p-4 rounded-lg bg-card border border-white/5">
-                    <h4 className="text-white font-bold text-[20px] mb-1">3+ Years</h4>
-                    <p className="text-slate-500 text-[14px]">Of Industry Excellence</p>
+                  <div className="grid grid-cols-1 gap-6">
+                    <div className="p-4 rounded-lg bg-card border border-white/5">
+                      <h4 className="text-white font-bold text-[20px] mb-1">3+ Years</h4>
+                      <p className="text-slate-500 text-[14px]">Of Industry Excellence</p>
+                    </div>
                   </div>
-                  <div className="p-4 rounded-lg bg-card border border-white/5">
-                    <h4 className="text-white font-bold text-[20px] mb-1">1500+</h4>
-                    <p className="text-slate-500 text-[14px]">Successful Projects</p>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
