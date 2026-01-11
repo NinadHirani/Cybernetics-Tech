@@ -15,44 +15,44 @@ const ServiceCard = ({
   link: string;
 }) => {
   return (
-    <div className="group relative overflow-hidden rounded-lg bg-white card-shadow transition-all duration-300 hover:-translate-y-2">
+    <div className="group relative overflow-hidden rounded-lg bg-slate-900 border border-slate-800 transition-all duration-300 hover:-translate-y-2">
       {/* Background Image Wrapper */}
       <div className="relative h-[250px] w-full overflow-hidden">
         <Image 
           src={bgImage} 
           alt={title} 
           fill 
-          className="object-cover transition-transform duration-500 group-hover:scale-110"
+          className="object-cover transition-transform duration-500 group-hover:scale-110 opacity-60"
         />
         {/* Overlay */}
-        <div className="absolute inset-0 bg-black/40 transition-opacity duration-300 group-hover:bg-black/20" />
+        <div className="absolute inset-0 bg-slate-950/60 transition-opacity duration-300 group-hover:bg-slate-950/40" />
       </div>
 
       {/* Content Area */}
       <div className="relative z-10 -mt-12 px-6 pb-8 text-center">
         {/* Icon Circle */}
-        <div className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-white card-shadow transition-transform duration-300 group-hover:scale-110">
+        <div className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-slate-800 border border-slate-700 shadow-xl transition-transform duration-300 group-hover:scale-110">
           <Image 
             src={icon} 
             alt={`${title} icon`} 
             width={45} 
             height={45} 
-            className="h-auto w-11 object-contain"
+            className="h-auto w-11 object-contain brightness-0 invert"
           />
         </div>
 
         {/* Text Styling */}
-        <h3 className="mb-3 font-display text-[22px] font-semibold leading-[1.4] text-[#333333] transition-colors duration-300 group-hover:text-[#28a745]">
+        <h3 className="mb-3 font-display text-[22px] font-semibold leading-[1.4] text-white transition-colors duration-300 group-hover:text-blue-400">
           {title}
         </h3>
-        <p className="mb-6 font-body text-base leading-[1.6] text-[#737373]">
+        <p className="mb-6 font-body text-base leading-[1.6] text-slate-400">
           {description}
         </p>
 
         {/* Read More Link */}
         <a 
           href={link} 
-          className="inline-flex items-center font-display text-sm font-bold uppercase tracking-wider text-[#28a745] hover:underline"
+          className="inline-flex items-center font-display text-sm font-bold uppercase tracking-wider text-blue-500 hover:underline"
         >
           Read More
           <svg 

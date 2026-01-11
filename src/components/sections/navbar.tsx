@@ -134,7 +134,7 @@ const Navbar = () => {
     },
   ];
 
-  const logoLight = "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c7eda8bf-0b51-4df9-bd1e-d810430a3d49-rkinfotechindia-com/assets/images/rkinfotech-white-logo-1.png";
+  const logoUrl = "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/c7eda8bf-0b51-4df9-bd1e-d810430a3d49/Screenshot-2025-12-25-at-9.03.20-PM-1768114807999.png?width=8000&height=8000&resize=contain";
 
   return (
     <header className="relative">
@@ -142,7 +142,7 @@ const Navbar = () => {
         id="navbar"
         className={cn(
           "fixed top-0 left-0 right-0 z-[1000] w-full transition-all duration-300 ease-in-out py-[10px]",
-          isAffixed ? "bg-white shadow-md shadow-black/5" : "bg-transparent"
+          isAffixed ? "bg-slate-950/90 backdrop-blur-md shadow-md shadow-black/20" : "bg-transparent"
         )}
       >
         <div className="container mx-auto max-w-[1170px] px-[15px]">
@@ -151,11 +151,11 @@ const Navbar = () => {
             <div className="flex-shrink-0">
               <Link href="/" className="block">
                 <Image
-                  src={isAffixed ? "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c7eda8bf-0b51-4df9-bd1e-d810430a3d49-rkinfotechindia-com/assets/icons/rkinfotech-regular-logo-1.png" : logoLight}
-                  alt="Rk Infotech"
+                  src={logoUrl}
+                  alt="Cybernetics-Tech"
                   width={185}
                   height={45}
-                  className="max-h-[45px] w-auto transition-all duration-300"
+                  className="max-h-[60px] w-auto transition-all duration-300 invert brightness-200"
                   priority
                 />
               </Link>
@@ -169,8 +169,8 @@ const Navbar = () => {
                     <Link
                       href={item.href}
                       className={cn(
-                        "transition-colors duration-300 flex items-center hover:text-primary",
-                        isAffixed ? "text-[#333333]" : "text-white"
+                        "transition-colors duration-300 flex items-center hover:text-blue-400",
+                        "text-white"
                       )}
                     >
                       {item.title}
@@ -183,15 +183,15 @@ const Navbar = () => {
                     {(item.isMega || item.isFlyout) && (
                       <div className="absolute top-full left-1/2 -translate-x-1/2 invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-300 ease-in-out pt-[10px]">
                         <div className={cn(
-                          "bg-white border-t-2 border-primary shadow-xl p-6 rounded-b-[4px]",
+                          "bg-slate-900 border-t-2 border-blue-500 shadow-2xl p-6 rounded-b-[4px]",
                           item.isMega ? "w-[700px] grid grid-cols-2 gap-8" : "w-[250px]"
                         )}>
                           {item.isMega ? (
                             item.columns?.map((col: Column, colIdx: number) => (
                               <div key={colIdx}>
                                 {col.title && (
-                                  <h4 className="text-[14px] font-bold text-[#333333] mb-4 uppercase tracking-wider flex items-center gap-2">
-                                    <div className="w-1 h-4 bg-primary rounded-full"></div>
+                                  <h4 className="text-[14px] font-bold text-slate-200 mb-4 uppercase tracking-wider flex items-center gap-2">
+                                    <div className="w-1 h-4 bg-blue-500 rounded-full"></div>
                                     {col.title}
                                   </h4>
                                 )}
@@ -200,9 +200,9 @@ const Navbar = () => {
                                     <li key={subIdx}>
                                       <Link
                                         href={sub.href}
-                                        className="text-[#666666] hover:text-primary text-[14px] transition-all flex items-start gap-2 group/link"
+                                        className="text-slate-400 hover:text-blue-400 text-[14px] transition-all flex items-start gap-2 group/link"
                                       >
-                                        <Check className="w-3.5 h-3.5 mt-1 text-primary invisible group-hover/link:visible" />
+                                        <Check className="w-3.5 h-3.5 mt-1 text-blue-500 invisible group-hover/link:visible" />
                                         <span className="leading-tight">{sub.name}</span>
                                       </Link>
                                     </li>
@@ -216,9 +216,9 @@ const Navbar = () => {
                                 <li key={subIdx}>
                                   <Link
                                     href={sub.href}
-                                    className="text-[#666666] hover:text-primary text-[14px] py-1 border-b border-gray-50 flex items-center gap-2 group/link"
+                                    className="text-slate-400 hover:text-blue-400 text-[14px] py-1 border-b border-slate-800 flex items-center gap-2 group/link"
                                   >
-                                    <Check className="w-3 h-3 text-primary invisible group-hover/link:visible" />
+                                    <Check className="w-3 h-3 text-blue-500 invisible group-hover/link:visible" />
                                     {sub.name}
                                   </Link>
                                 </li>
@@ -233,10 +233,10 @@ const Navbar = () => {
               </ul>
 
               {/* Contact Us Button */}
-              <div className="ml-4 hvr-wobble-horizontal">
+              <div className="ml-4">
                 <Link
                   href="/contact-us/"
-                  className="btn btn-sm grdnt-green text-white font-bold text-[14px] px-[25px] py-[10px] rounded-[8px] uppercase font-display"
+                  className="bg-blue-600 hover:bg-blue-700 text-white font-bold text-[14px] px-[25px] py-[10px] rounded-[8px] uppercase font-display transition-colors"
                 >
                   Contact Us
                 </Link>
@@ -245,10 +245,10 @@ const Navbar = () => {
 
             {/* Mobile Menu Toggle */}
             <button
-              className="lg:hidden p-2"
+              className="lg:hidden p-2 text-white"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
-              <Menu className={cn("w-8 h-8", isAffixed ? "text-[#333333]" : "text-white")} />
+              <Menu className="w-8 h-8" />
             </button>
           </div>
         </div>
@@ -256,31 +256,32 @@ const Navbar = () => {
         {/* Mobile Sidebar */}
         <div
           className={cn(
-            "fixed inset-0 bg-white z-[2000] lg:hidden transition-transform duration-300 flex flex-col",
+            "fixed inset-0 bg-slate-950 z-[2000] lg:hidden transition-transform duration-300 flex flex-col",
             mobileMenuOpen ? "translate-x-0" : "translate-x-full"
           )}
         >
-          <div className="flex items-center justify-between p-4 border-b">
+          <div className="flex items-center justify-between p-4 border-b border-slate-800">
              <Image
-                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/c7eda8bf-0b51-4df9-bd1e-d810430a3d49-rkinfotechindia-com/assets/icons/rkinfotech-regular-logo-1.png"
-                alt="RK Infotech"
+                src={logoUrl}
+                alt="Cybernetics-Tech"
                 width={150}
                 height={36}
+                className="invert brightness-200"
              />
-             <button onClick={() => setMobileMenuOpen(false)} className="text-[32px] font-light leading-none">
+             <button onClick={() => setMobileMenuOpen(false)} className="text-[32px] font-light leading-none text-white">
                ×
              </button>
           </div>
           <div className="flex-1 overflow-y-auto p-4">
             <ul className="space-y-4 font-display font-medium text-[16px]">
               {menuItems.map((item, idx) => (
-                <li key={idx} className="border-b border-gray-100 pb-2">
+                <li key={idx} className="border-b border-slate-800 pb-2">
                   <div className="flex items-center justify-between">
-                    <Link href={item.href} className="text-[#333] hover:text-primary">{item.title}</Link>
+                    <Link href={item.href} className="text-slate-200 hover:text-blue-400">{item.title}</Link>
                     {(item.isMega || item.isFlyout) && (
                       <button
                         onClick={() => setActiveSubMenu(activeSubMenu === item.title ? null : item.title)}
-                        className="p-2"
+                        className="p-2 text-slate-400"
                       >
                         <ChevronDown className={cn("w-5 h-5 transition-transform", activeSubMenu === item.title ? "rotate-180" : "")} />
                       </button>
@@ -291,15 +292,15 @@ const Navbar = () => {
                       {item.isMega ? (
                         item.columns?.map((col: Column, cIdx: number) => (
                           <div key={cIdx} className="space-y-2">
-                             {col.title && <h5 className="text-[12px] font-bold text-gray-400 uppercase">{col.title}</h5>}
+                             {col.title && <h5 className="text-[12px] font-bold text-slate-500 uppercase">{col.title}</h5>}
                              {col.items.map((sub: SubMenuItem, sIdx: number) => (
-                               <Link key={sIdx} href={sub.href} className="block text-[14px] text-[#666] py-1">{sub.name}</Link>
+                               <Link key={sIdx} href={sub.href} className="block text-[14px] text-slate-400 py-1">{sub.name}</Link>
                              ))}
                           </div>
                         ))
                       ) : (
                         item.items?.map((sub: SubMenuItem, sIdx: number) => (
-                          <Link key={sIdx} href={sub.href} className="block text-[14px] text-[#666] py-1">{sub.name}</Link>
+                          <Link key={sIdx} href={sub.href} className="block text-[14px] text-slate-400 py-1">{sub.name}</Link>
                         ))
                       )}
                     </div>
@@ -308,10 +309,10 @@ const Navbar = () => {
               ))}
             </ul>
           </div>
-          <div className="p-4 bg-gray-50">
+          <div className="p-4 bg-slate-900">
             <Link
               href="/contact-us/"
-              className="block text-center grdnt-green text-white py-3 rounded-lg font-bold uppercase"
+              className="block text-center bg-blue-600 text-white py-3 rounded-lg font-bold uppercase"
             >
               Contact Us
             </Link>
@@ -320,9 +321,6 @@ const Navbar = () => {
       </nav>
 
       <style jsx global>{`
-        .grdnt-green {
-          background: linear-gradient(to right, #00b09b, #96c93d);
-        }
         .hvr-wobble-horizontal {
           display: inline-block;
           vertical-align: middle;

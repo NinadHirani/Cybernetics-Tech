@@ -7,12 +7,14 @@ import Footer from "@/components/sections/footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-slate-950 text-white selection:bg-blue-500/30">
       <Navbar />
       <Hero />
-      <ServicesSection />
-      <PortfolioSection />
-      <BlogNews />
+      <div className="space-y-0">
+        <ServicesSection />
+        <PortfolioSection />
+        <BlogNews />
+      </div>
       <Footer />
     </main>
   );
