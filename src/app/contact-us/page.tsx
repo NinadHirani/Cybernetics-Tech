@@ -1,6 +1,6 @@
 import Navbar from "@/components/sections/navbar";
 import Footer from "@/components/sections/footer";
-import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import { Mail, MapPin, Clock } from "lucide-react";
 
 export default function ContactUsPage() {
   return (
@@ -31,19 +31,6 @@ export default function ContactUsPage() {
                     <p className="text-slate-400 text-sm leading-relaxed">
                       Rajkot Gujarat
                     </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="p-8 rounded-xl bg-card border border-white/5 shadow-xl">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                    <Phone className="text-primary w-6 h-6" />
-                  </div>
-                  <div>
-                    <h4 className="text-white font-bold mb-2">Phone Number</h4>
-                    <p className="text-slate-400 text-sm">+91 97143 16655</p>
-                    <p className="text-slate-400 text-sm">+91 98797 96677</p>
                   </div>
                 </div>
               </div>

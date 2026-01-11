@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Twitter, Youtube } from 'lucide-react';
+import { Facebook, Instagram, Linkedin, Mail, MapPin, Twitter, Youtube } from 'lucide-react';
 import { Logo } from '@/components/ui/logo';
 
 const Footer = () => {
@@ -95,13 +95,6 @@ const Footer = () => {
                   <p className="text-[14px] leading-[24px]">
                     Rajkot Gujarat
                   </p>
-              </div>
-              <div className="flex items-center gap-3">
-                <Phone className="text-primary w-5 h-5 shrink-0" />
-                <div className="flex flex-col">
-                  <a href="tel:+919714316655" className="hover:text-primary">+91 97143 16655</a>
-                  <a href="tel:+919879796677" className="hover:text-primary">+91 98797 96677</a>
-                </div>
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="text-primary w-5 h-5 shrink-0" />
