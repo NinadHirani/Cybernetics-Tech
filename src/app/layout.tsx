@@ -18,10 +18,14 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Cybernetics Tech | Best IT Company in Rajkot, Gujarat",
   description: "Cybernetics Tech provides reliable and affordable IT solutions for your business growth. End-to-end technology solutions tailored to your needs.",
+  applicationName: "Cybernetics-Tech",
+  appleWebApp: {
+    title: "Cybernetics-Tech",
+  },
     openGraph: {
       title: "Cybernetics Tech | Best IT Company in Rajkot, Gujarat",
       description: "Cybernetics Tech provides reliable and affordable IT solutions for your business growth.",
-      siteName: "Cybernetics Tech",
+      siteName: "Cybernetics-Tech",
       type: "website",
     },
     icons: {
