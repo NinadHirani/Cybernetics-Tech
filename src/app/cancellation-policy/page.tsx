@@ -20,10 +20,10 @@ export default function CancellationPolicy() {
             </ul>
           </section>
 
-          <section>
-            <h2 className="text-2xl font-bold text-white mb-4">2. Termination by Cybernetics-Tech</h2>
-            <p>We reserve the right to terminate or suspend a project if the client violates our terms of service, fails to provide necessary information, or defaults on payments.</p>
-          </section>
+            <section>
+              <h2 className="text-2xl font-bold text-white mb-4">2. Termination by Cybernetics Tech</h2>
+              <p>We reserve the right to terminate or suspend a project if the client violates our terms of service, fails to provide necessary information, or defaults on payments.</p>
+            </section>
 
           <section>
             <h2 className="text-2xl font-bold text-white mb-4">3. Fees</h2>

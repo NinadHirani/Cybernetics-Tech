@@ -11,10 +11,10 @@ export default function RefundPolicy() {
         <div className="prose prose-invert max-w-none text-slate-300 space-y-6">
           <p>Last updated: January 11, 2026</p>
           
-          <section>
-            <h2 className="text-2xl font-bold text-white mb-4">1. General Policy</h2>
-            <p>At Cybernetics-Tech, we strive to ensure our clients are satisfied with our services. However, due to the nature of digital services and software development, our refund policy is as follows:</p>
-          </section>
+            <section>
+              <h2 className="text-2xl font-bold text-white mb-4">1. General Policy</h2>
+              <p>At Cybernetics Tech, we strive to ensure our clients are satisfied with our services. However, due to the nature of digital services and software development, our refund policy is as follows:</p>
+            </section>
 
           <section>
             <h2 className="text-2xl font-bold text-white mb-4">2. Eligibility for Refunds</h2>

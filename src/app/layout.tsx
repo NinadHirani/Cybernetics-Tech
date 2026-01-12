@@ -18,13 +18,18 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Cybernetics Tech | Best IT Company in Rajkot, Gujarat",
   description: "Cybernetics Tech provides reliable and affordable IT solutions for your business growth. End-to-end technology solutions tailored to your needs.",
-  openGraph: {
-    title: "Cybernetics Tech | Best IT Company in Rajkot, Gujarat",
-    description: "Cybernetics Tech provides reliable and affordable IT solutions for your business growth.",
-    siteName: "Cybernetics Tech",
-    type: "website",
-  },
-  verification: {
+    openGraph: {
+      title: "Cybernetics Tech | Best IT Company in Rajkot, Gujarat",
+      description: "Cybernetics Tech provides reliable and affordable IT solutions for your business growth.",
+      siteName: "Cybernetics Tech",
+      type: "website",
+    },
+    icons: {
+      icon: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/c7eda8bf-0b51-4df9-bd1e-d810430a3d49/Cybernetic-Tech-Logo-1768224421817.png?width=8000&height=8000&resize=contain",
+      shortcut: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/c7eda8bf-0b51-4df9-bd1e-d810430a3d49/Cybernetic-Tech-Logo-1768224421817.png?width=8000&height=8000&resize=contain",
+      apple: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/c7eda8bf-0b51-4df9-bd1e-d810430a3d49/Cybernetic-Tech-Logo-1768224421817.png?width=8000&height=8000&resize=contain",
+    },
+    verification: {
     google: "UWHykeotugc6QJut4kG9SQ25BCR8_cI38-4Tnhdo5Nw", // This generates the <meta> tag
   },
 };

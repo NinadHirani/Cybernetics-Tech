@@ -110,9 +110,9 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="border-t border-zinc-800 py-[25px] flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="text-[14px]">
-            © {new Date().getFullYear()} Cybernetics-Tech. All Rights Reserved.
-          </div>
+            <div className="text-[14px]">
+              © {new Date().getFullYear()} Cybernetics Tech. All Rights Reserved.
+            </div>
             <div className="flex items-center gap-6">
               <ul className="flex gap-6 text-[14px]">
                 <li><Link href="/privacy-policy" className="hover:text-primary">Privacy Policy</Link></li>
