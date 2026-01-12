@@ -14,9 +14,9 @@ const Footer = () => {
           {/* Brand Column */}
           <div className="footer-col lg:col-span-1">
             <Logo className="mb-[25px]" />
-            <p className="text-[14px] leading-[24px] mb-6 pr-4">
-              Cybernetics-Tech provides reliable and affordable IT solutions for your business growth. End-to-end technology solutions tailored to your needs.
-            </p>
+              <p className="text-[14px] leading-[24px] mb-6 pr-4">
+                Cybernetics Tech provides reliable and affordable IT solutions for your business growth. End-to-end technology solutions tailored to your needs.
+              </p>
             <div className="flex gap-2 mb-8">
               <a 
                 href="https://www.linkedin.com/company/cybernetics-technologia" 

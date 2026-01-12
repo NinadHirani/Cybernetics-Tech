@@ -16,22 +16,16 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Cybernetics-Tech | Best IT Company in Rajkot, Gujarat",
-  description: "Cybernetics-Tech provides reliable and affordable IT solutions for your business growth. End-to-end technology solutions tailored to your needs.",
-  verification: {
-    google: "UWHykeotugc6QJut4kG9SQ25BCR8_cI38-4Tnhdo5Nw", // This generates the <meta> tag
-  },
+  title: "Cybernetics Tech | Best IT Company in Rajkot, Gujarat",
+  description: "Cybernetics Tech provides reliable and affordable IT solutions for your business growth. End-to-end technology solutions tailored to your needs.",
   openGraph: {
+    title: "Cybernetics Tech | Best IT Company in Rajkot, Gujarat",
+    description: "Cybernetics Tech provides reliable and affordable IT solutions for your business growth.",
     siteName: "Cybernetics Tech",
-    title: "Cybernetics-Tech | Best IT Company in Rajkot, Gujarat",
-    description: "Cybernetics-Tech provides reliable and affordable IT solutions for your business growth.",
     type: "website",
   },
-  applicationName: "Cybernetics Tech",
-  appleWebApp: {
-    title: "Cybernetics Tech",
-    statusBarStyle: "default",
-    capable: true,
+  verification: {
+    google: "UWHykeotugc6QJut4kG9SQ25BCR8_cI38-4Tnhdo5Nw", // This generates the <meta> tag
   },
 };
 

@@ -34,9 +34,9 @@ export default function ContactUsPage() {
               Contact <span className="text-primary">Us</span>
             </h2>
             <div className="w-[60px] h-[3px] bg-primary mx-auto mb-6"></div>
-              <p className="text-slate-400 text-[18px] max-w-2xl mx-auto">
-                Have a project in mind? Let&apos;s talk about how we can help your business grow with our technology solutions.
-              </p>
+            <p className="text-slate-400 text-[18px] max-w-2xl mx-auto">
+              Have a project in mind? Let's talk about how we can help your business grow with our technology solutions.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
