@@ -5,7 +5,16 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
-const servicesData: Record<string, any> = {
+interface ServiceData {
+  title: string;
+  description: string;
+  fullContent: string;
+  icon: string;
+  bgImage: string;
+  features: string[];
+}
+
+const servicesData: Record<string, ServiceData> = {
   "web-development": {
     title: "Web Development",
     description: "We provide high-quality and cost-effective website development services for your business requirements. Our team of experts uses the latest technologies to build responsive, fast, and secure websites that help your business stand out in the digital landscape.",

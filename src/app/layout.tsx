@@ -21,6 +21,18 @@ export const metadata: Metadata = {
   verification: {
     google: "UWHykeotugc6QJut4kG9SQ25BCR8_cI38-4Tnhdo5Nw", // This generates the <meta> tag
   },
+  openGraph: {
+    siteName: "Cybernetics Tech",
+    title: "Cybernetics-Tech | Best IT Company in Rajkot, Gujarat",
+    description: "Cybernetics-Tech provides reliable and affordable IT solutions for your business growth.",
+    type: "website",
+  },
+  applicationName: "Cybernetics Tech",
+  appleWebApp: {
+    title: "Cybernetics Tech",
+    statusBarStyle: "default",
+    capable: true,
+  },
 };
 
 export default function RootLayout({
