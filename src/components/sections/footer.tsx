@@ -27,7 +27,7 @@ const Footer = () => {
                 <Linkedin className="w-4 h-4 text-white group-hover:scale-110" />
               </a>
               <a 
-                href="https://github.com/cybernetics-tech" 
+                href="https://github.com/NinadHirani" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="w-10 h-10 rounded-full border border-zinc-700 flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-300 group"
@@ -120,7 +120,31 @@ const Footer = () => {
                 <li><Link href="/cancellation-policy" className="hover:text-primary">Cancellation Policy</Link></li>
               </ul>
             </div>
+        </div>
 
+        {/* Developer Credit */}
+        <div className="border-t border-zinc-800 py-4 flex justify-center items-center gap-3">
+          <span className="text-[13px] text-[#848c99]">
+            Developed by <a href="https://github.com/NinadHirani" target="_blank" rel="noopener noreferrer" className="text-white hover:text-primary transition-colors duration-300">Ninad Hirani</a>
+          </span>
+          <div className="flex gap-2">
+            <a
+              href="https://github.com/NinadHirani"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-8 h-8 rounded-full border border-zinc-700 flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-300 group"
+            >
+              <Github className="w-3.5 h-3.5 text-white group-hover:scale-110" />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/ninad-hirani"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-8 h-8 rounded-full border border-zinc-700 flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-300 group"
+            >
+              <Linkedin className="w-3.5 h-3.5 text-white group-hover:scale-110" />
+            </a>
+          </div>
         </div>
       </div>
     </footer>
