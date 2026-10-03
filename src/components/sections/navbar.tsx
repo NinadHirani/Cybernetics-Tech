@@ -175,7 +175,7 @@ interface Column {
                   </ul>
                   <div className="flex items-center ml-4 gap-4">
                     <a 
-                      href="https://github.com/cybernetics-tech" 
+                      href="https://github.com/NinadHirani" 
                       target="_blank" 
                       rel="noopener noreferrer" 
                       className="text-slate-300 hover:text-white transition-colors p-2"
@@ -265,7 +265,7 @@ interface Column {
                 </Link>
                 <div className="flex justify-center gap-6">
                   <a 
-                    href="https://github.com/cybernetics-tech" 
+                    href="https://github.com/NinadHirani" 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-primary transition-colors"
