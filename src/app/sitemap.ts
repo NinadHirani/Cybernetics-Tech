@@ -44,12 +44,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/news`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
       url: `${baseUrl}/contact-us`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
@@ -76,4 +70,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
       },
     ];
   }
+
 
