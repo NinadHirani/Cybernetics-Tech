@@ -1,4 +1,11 @@
 import React from 'react';
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy",
+  description: "How Cybernetics Tech collects, uses, and protects the information you share with us.",
+  alternates: { canonical: "/privacy-policy" },
+};
 import Navbar from "@/components/sections/navbar";
 import Footer from "@/components/sections/footer";
 

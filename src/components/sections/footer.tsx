@@ -49,6 +49,9 @@ const Footer = () => {
                   <li>
                     <Link href="/who-we-are" className="hover:text-primary transition-colors duration-300">Who We Are</Link>
                   </li>
+                  <li>
+                    <Link href="/our-work" className="hover:text-primary transition-colors duration-300">Our Work</Link>
+                  </li>
                     <li>
                       <Link href="/services" className="hover:text-primary transition-colors duration-300">Our Services</Link>
                     </li>
@@ -65,19 +68,19 @@ const Footer = () => {
                 </h3>
                 <ul className="space-y-[12px]">
                   <li>
-                    <Link href="/services" className="hover:text-primary transition-colors duration-300">Website Development</Link>
+                    <Link href="/services/web-development" className="hover:text-primary transition-colors duration-300">Website Development</Link>
                   </li>
                   <li>
-                    <Link href="/services" className="hover:text-primary transition-colors duration-300">Software Development</Link>
+                    <Link href="/services/software-development" className="hover:text-primary transition-colors duration-300">Software Development</Link>
                   </li>
                   <li>
-                    <Link href="/services" className="hover:text-primary transition-colors duration-300">Mobile App Development</Link>
+                    <Link href="/services/app-development" className="hover:text-primary transition-colors duration-300">Mobile App Development</Link>
                   </li>
                   <li>
-                    <Link href="/services" className="hover:text-primary transition-colors duration-300">Graphic Design</Link>
+                    <Link href="/services/graphics-design" className="hover:text-primary transition-colors duration-300">Graphic Design</Link>
                   </li>
                   <li>
-                    <Link href="/services" className="hover:text-primary transition-colors duration-300">SEO Services</Link>
+                    <Link href="/services/seo-service" className="hover:text-primary transition-colors duration-300">SEO Services</Link>
                   </li>
                   <li>
                     <Link href="/contact-us" className="hover:text-primary transition-colors duration-300">Hire Developers</Link>
