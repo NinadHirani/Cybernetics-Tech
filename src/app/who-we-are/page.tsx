@@ -1,4 +1,11 @@
 import Navbar from "@/components/sections/navbar";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Who We Are",
+  description: "Cybernetics Tech is a technology-driven IT services company in Rajkot, Gujarat, building reliable websites, applications, and digital systems.",
+  alternates: { canonical: "/who-we-are" },
+};
 import Footer from "@/components/sections/footer";
 
 export default function WhoWeArePage() {

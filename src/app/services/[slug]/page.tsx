@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import React from 'react';
 import Navbar from "@/components/sections/navbar";
 import Footer from "@/components/sections/footer";
@@ -47,6 +48,36 @@ const servicesData: Record<string, any> = {
     features: ["Custom Enterprise Software", "Legacy System Modernization", "Cloud Solutions", "Software Integration", "Quality Assurance"]
   }
 };
+
+
+export function generateStaticParams() {
+  return Object.keys(servicesData).map((slug) => ({ slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const service = servicesData[slug];
+
+  if (!service) {
+    return {};
+  }
+
+  return {
+    title: service.title,
+    description: service.description,
+    alternates: { canonical: `/services/${slug}` },
+    openGraph: {
+      title: service.title,
+      description: service.description,
+      url: `/services/${slug}`,
+      images: [{ url: service.bgImage, alt: service.title }],
+    },
+  };
+}
 
 export default function ServiceDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = React.use(params);

@@ -46,6 +46,7 @@ interface Column {
     const menuItems = [
       { title: "Home", href: "/" },
       { title: "Who We Are", href: "/who-we-are" },
+      { title: "Our Work", href: "/our-work" },
       {
         title: "Our Services",
         href: "/services",
@@ -55,20 +56,20 @@ interface Column {
             title: "Core Services",
             items: [
               { name: "Product Design", href: "/services" },
-              { name: "Web Development", href: "/services" },
-              { name: "Software Development", href: "/services" },
-              { name: "Mobile Apps", href: "/services" },
-              { name: "SEO Optimization", href: "/services" },
+              { name: "Web Development", href: "/services/web-development" },
+              { name: "Software Development", href: "/services/software-development" },
+              { name: "Mobile Apps", href: "/services/app-development" },
+              { name: "SEO Optimization", href: "/services/seo-service" },
             ],
           },
           {
             title: "Creative Solutions",
             items: [
-              { name: "Branding", href: "/services" },
+              { name: "Branding", href: "/services/graphics-design" },
               { name: "UI/UX Design", href: "/services" },
               { name: "Packaging", href: "/services" },
               { name: "Print Media", href: "/services" },
-              { name: "Logo Design", href: "/services" },
+              { name: "Logo Design", href: "/services/graphics-design" },
             ],
           },
           ] as Column[],

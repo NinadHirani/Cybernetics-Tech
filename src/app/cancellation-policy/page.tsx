@@ -1,4 +1,11 @@
 import React from 'react';
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Cancellation Policy",
+  description: "Cybernetics Tech's cancellation policy: project cancellation terms, termination, and fees.",
+  alternates: { canonical: "/cancellation-policy" },
+};
 import Navbar from "@/components/sections/navbar";
 import Footer from "@/components/sections/footer";
 
